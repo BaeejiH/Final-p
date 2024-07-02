@@ -35,20 +35,39 @@
 	</select>
 	
 	<update id="updateMovie" parameterType="com.gd.Final.dto.MovieDto">
-		UPDATE Movie
+		UPDATE Movie m
+		JOIN Genre g
+		ON m.genre = g.genre
 		SET title = #{title}
-		    ,Genre = #{genre}
-		    ,director = #{director}
-		    ,producer = #{producer}
-		    ,release_date = #{releaseDate}
-		    ,runtime = #{runtime}
-		    ,DESCRIPTION = #{description}
-		    ,image = #{image}
+		    ,m.genre = #{genre}
+		    ,m.director = #{director}
+		    ,m.producer = #{producer}
+		    ,m.release_date = #{releaseDate}
+		    ,m.runtime = #{runtime}
+		    ,m.DESCRIPTION = #{description}
+		    ,m.image = #{image}
 		WHERE movie_num = #{movieNum};
 	</update>
 	
 	<delete id="deleteMovie" parameterType="int" >
 		DELETE FROM Movie WHERE movie_num = #{movieNum} 
 	</delete>
+	
+	<insert id="insertMovie" parameterType="com.gd.Final.dto.MovieDto" >
+		INSERT INTO Movie(Genre
+						, title,director
+						,producer,release_date
+						,runtime
+						,DESCRIPTION
+						, image)
+				VALUES(#{genre}
+						,#{title}
+						,#{director}
+						,#{producer}
+						,#{releaseDate}
+						,#{runtime}
+						,#{description}
+						,#{image})
+	</insert>
 	
 </mapper>

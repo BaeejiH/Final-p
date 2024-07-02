@@ -21,11 +21,11 @@
 			<button type="submit">검색</button>
 		</div>
 	</form>
-
+	
 	<br>
+	
+		<div><a href="${pageContext.request.contextPath}/addMovie"><button>영화추가</button></a></div>
 	<br>
-
-
 	<table border="1">
 		<tr>
 			<td>movieNum</td>

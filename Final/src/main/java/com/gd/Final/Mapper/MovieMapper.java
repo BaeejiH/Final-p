@@ -28,5 +28,9 @@ public interface MovieMapper {
 	// 영화 삭제
 	int deleteMovie (int movieNum);
 	
+	// 영화 추가
+	int insertMovie(MovieDto m);
+	
+	
 	
 }

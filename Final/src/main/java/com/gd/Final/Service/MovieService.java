@@ -77,6 +77,13 @@ public class MovieService {
 		return movieMapper.deleteMovie(movieNum);
 	}
 	
+	// 영화 추가
+	public int addMovie(MovieDto m) {
+		return movieMapper.insertMovie(m);
+	}
+	
+	
+	
 	
 
 }

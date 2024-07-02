@@ -11,8 +11,8 @@
 </head>
 <body>
 	<h1>MovieOne</h1>
-
-
+	
+	
 	<c:set var="m" value="${movieDto}" /><!-- c:set 태그를 통해서 movieDto를 m으로 설정 -->
 	
 	<form action="${pageContext.request.contextPath}/MovieOne" method="post">
