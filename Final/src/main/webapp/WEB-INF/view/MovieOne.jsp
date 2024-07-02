@@ -14,54 +14,59 @@
 
 
 	<c:set var="m" value="${movieDto}" /><!-- c:set 태그를 통해서 movieDto를 m으로 설정 -->
+	
+	<form action="${pageContext.request.contextPath}/MovieOne" method="post">
 	<table border="1">
 		<tr>
 			<td>movieNum</td>
-			<td>${m.movieNum}</td>
+			<td><input type="hidden" name="movieNum" value="${m.movieNum}">${m.movieNum}</td>
 		</tr>
 
 		<tr>
 			<td>genre</td>
-			<td>${m.genre}</td>
+			<td><input type="text" name="genre" value="${m.genre}"></td>
 		</tr>
 
 		<tr>
 			<td>title</td>
-			<td>${m.title}</td>
+			<td><input type="text" name="title" value="${m.title}"></td>
 		</tr>
 
 		<tr>
 			<td>director</td>
-			<td>${m.director}</td>
+			<td><input type="text" name="director" value="${m.director}"></td>
 		</tr>
 
 		<tr>
 			<td>producer</td>
-			<td>${m.producer}</td>
+			<td><input type="text" name="producer" value="${m.producer}"></td>
 		</tr>
 
 		<tr>
 			<td>releaseDate</td>
-			<td>${m.releaseDate}</td>
+			<td><input type="date" name="releaseDate" value="${m.releaseDate}"></td>
 		</tr>
 
 		<tr>
 			<td>runtime</td>
-			<td>${m.runtime}</td>
+			<td><input type="number" name="runtime" value="${m.runtime}"></td>
 		</tr>
 
 		<tr>
 			<td>description</td>
-			<td>${m.description}</td>
+			<td><input type="text" name="description" value="${m.description}"></td>
 		</tr>
 
 		<tr>
 			<td>image</td>
-			<td>${m.image}</td>
+			<td><input type="text" name="image" value="${m.image}"></td>
 		</tr>
 
 	</table>
-	<a href="${pageContext.request.contextPath}/updateMovie">수정</a>
-	<a href="${pageContext.request.contextPath}/deleteMovie">삭제</a>
+		
+		<button type="submit">수정</button>
+	</form>
+	
+	<a href="${pageContext.request.contextPath}/removeMovie?movieNum=${m.movieNum}">삭제</a>
 </body>
 </html>

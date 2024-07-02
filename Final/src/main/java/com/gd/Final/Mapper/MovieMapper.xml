@@ -33,5 +33,22 @@
 		WHERE movie_num = #{movieNum};
 		
 	</select>
-
+	
+	<update id="updateMovie" parameterType="com.gd.Final.dto.MovieDto">
+		UPDATE Movie
+		SET title = #{title}
+		    ,Genre = #{genre}
+		    ,director = #{director}
+		    ,producer = #{producer}
+		    ,release_date = #{releaseDate}
+		    ,runtime = #{runtime}
+		    ,DESCRIPTION = #{description}
+		    ,image = #{image}
+		WHERE movie_num = #{movieNum};
+	</update>
+	
+	<delete id="deleteMovie" parameterType="int" >
+		DELETE FROM Movie WHERE movie_num = #{movieNum} 
+	</delete>
+	
 </mapper>

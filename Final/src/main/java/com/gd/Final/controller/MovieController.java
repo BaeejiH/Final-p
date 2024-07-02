@@ -12,6 +12,7 @@ import com.gd.Final.Service.MovieService;
 import com.gd.Final.dto.MovieDto;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -56,15 +57,30 @@ public class MovieController {
 
 		return "MovieList";
 	}
-	
-	
+
+	// 영화 상세보기 + 수정 폼
 	@GetMapping("/MovieOne")
-	public String getMovieOne(Model model,@RequestParam(name="movieNum") int movieNum) {
+	public String getMovieOne(Model model, @RequestParam(name = "movieNum") int movieNum) {
 		MovieDto movieDto = movieService.getMovieOne(movieNum);
-		model.addAttribute("movieDto",movieDto);
-		
-		log.debug("movieDto"+movieDto);
+		model.addAttribute("movieDto", movieDto);
+		log.debug("movieDto" + movieDto);
+		log.debug("RequestParam movieNum"+movieNum);
 		return "MovieOne";
+	}
+
+	// 수정 액션 (상세보기에서 바로 수정)
+	@PostMapping("/MovieOne")
+	public String updateMovie(MovieDto m) {
+		int row = movieService.modifyMovie(m);
+		log.debug("row" + row);
+		return "redirect:/MovieList?movieNum=" + m.getMovieNum();
+	}
+	
+	// 영화 삭제
+	@GetMapping("/removeMovie")
+	public String removeMovie(@RequestParam(name="movieNum") int movienum) {
+		int row = movieService.removeMovie(movienum);
+		return "redirect:/MovieList";
 	}
 	
 

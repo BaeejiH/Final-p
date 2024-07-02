@@ -67,6 +67,16 @@ public class MovieService {
 		return movieMapper.selectMovieOne(movieNum);
 	}
 	
+	// 영화 수정하기
+	public int modifyMovie(MovieDto m) {
+		return movieMapper.updateMovie(m);
+	}
+	
+	// 영화 삭제하기
+	public int removeMovie(int movieNum) {
+		return movieMapper.deleteMovie(movieNum);
+	}
+	
 	
 
 }
