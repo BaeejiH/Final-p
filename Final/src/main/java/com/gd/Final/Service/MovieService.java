@@ -61,29 +61,25 @@ public class MovieService {
 	public int getLastPageSearch(int rowPerPage, String searchMovie) {
 		return 0;
 	}
-	
+
 	// 영화 상세보기
 	public MovieDto getMovieOne(int movieNum) {
 		return movieMapper.selectMovieOne(movieNum);
 	}
-	
+
 	// 영화 수정하기
 	public int modifyMovie(MovieDto m) {
 		return movieMapper.updateMovie(m);
 	}
-	
+
 	// 영화 삭제하기
 	public int removeMovie(int movieNum) {
 		return movieMapper.deleteMovie(movieNum);
 	}
-	
+
 	// 영화 추가
 	public int addMovie(MovieDto m) {
 		return movieMapper.insertMovie(m);
 	}
-	
-	
-	
-	
 
 }

@@ -42,7 +42,7 @@
 				<td>${m.image}</td>
 			</tr>
 		</c:forEach>
-
+			
 	</table>
 		
 			

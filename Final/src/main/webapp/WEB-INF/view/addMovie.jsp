@@ -57,6 +57,11 @@
 			<td>image</td>
 			<td><input type="text" name="image"></td>
 		</tr>
+		
+		<tr>
+			<td>bcode</td>
+			<td><input type="number" name="bcode"></td>
+		</tr>
 
 	</table>
 		

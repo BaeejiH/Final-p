@@ -17,5 +17,6 @@ public class MovieDto {
 	private int runtime;
 	private String description;
 	private String image;
+	private int bcode;
 	
 }

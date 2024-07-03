@@ -46,6 +46,7 @@
 		    ,m.runtime = #{runtime}
 		    ,m.DESCRIPTION = #{description}
 		    ,m.image = #{image}
+		    ,m.bcode = #{bcode}
 		WHERE movie_num = #{movieNum};
 	</update>
 	
@@ -59,7 +60,8 @@
 						,producer,release_date
 						,runtime
 						,DESCRIPTION
-						, image)
+						,image
+						,bcode)
 				VALUES(#{genre}
 						,#{title}
 						,#{director}
@@ -67,7 +69,8 @@
 						,#{releaseDate}
 						,#{runtime}
 						,#{description}
-						,#{image})
+						,#{image}
+						,#{bcode})
 	</insert>
 	
 </mapper>

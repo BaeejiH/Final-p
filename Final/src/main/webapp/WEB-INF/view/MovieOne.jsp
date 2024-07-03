@@ -51,7 +51,7 @@
 			<td>runtime</td>
 			<td><input type="number" name="runtime" value="${m.runtime}"></td>
 		</tr>
-
+				
 		<tr>
 			<td>description</td>
 			<td><input type="text" name="description" value="${m.description}"></td>
@@ -60,6 +60,11 @@
 		<tr>
 			<td>image</td>
 			<td><input type="text" name="image" value="${m.image}"></td>
+		</tr>
+		
+		<tr>
+			<td>bcode</td>
+			<td><input type="number" name="bcode" value="${m.bcode}"></td>
 		</tr>
 
 	</table>
