@@ -22,11 +22,6 @@ public class MovieController {
 	@Autowired
 	MovieService movieService;
 
-	@GetMapping("/test")
-	public String getTest() {
-		return "test";
-	}
-
 	@GetMapping("/MovieList")
 	public String getMovie(Model model, @RequestParam(name = "rowPerPage", defaultValue = "10") int rowPerPage,
 			@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
@@ -98,5 +93,7 @@ public class MovieController {
 		log.debug("Request MovieDto m" + m);
 		return "redirect:/MovieList";
 	}
+	
+	
 
 }
