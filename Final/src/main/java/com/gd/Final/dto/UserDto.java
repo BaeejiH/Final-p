@@ -15,7 +15,7 @@ public class UserDto {
 	private String email;
 	private String gender;
 	private Date updateDate;
-	private Date createDdate;
+	private Date createDate;
 	private String userPw;
 	private Date UsercreateDate;
 }

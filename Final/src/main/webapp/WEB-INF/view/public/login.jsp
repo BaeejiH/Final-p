@@ -13,7 +13,7 @@
 
 <body>
 	<h2>로그인</h2>
-	<form action="${pageContext.request.contextPath}/login" method="get">
+	<form action="${pageContext.request.contextPath}/public/login" method="post">
 		<table border="1" width="400px">
 			<tr>
 				<td>아이디</td>

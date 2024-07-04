@@ -16,15 +16,15 @@ public class loginService {
 	loginMapper loginmapper;
 	
 	// 사용자 로그인
-	public UserDto getUserlogin(String userId, String userPw) {
+	public UserDto Userlogin(String userId, String userPw) {
 		
-		return loginmapper.selectUserBylogin(userId, userPw);
+		return loginmapper.UserLoginCheck(userId, userPw);
 		}
 	
 	// 관리자 로그인
-	public AdminDto getAdminlogin (String adminId, String adminPw) {
+	public AdminDto Adminlogin (String adminId, String adminPw) {
 		
-		return loginmapper.selectAdminBylogin(adminId, adminPw);
+		return loginmapper.AdminLoginCheck(adminId, adminPw);
 	}
 	
 }

@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gd.Final.Mapper.loginMapper">
-	<select id="selectUserBylogin" resultType="String">
-		SELECT u.username
+	<select id="UserLoginCheck" resultType="com.gd.Final.dto.UserDto">
+		SELECT u.username 
+			,u.user_id userId
+			,u.email,u.gender
+			,u.update_date updateDate
+			,u.create_date createDate
+			,up.user_pw userPw
+			,up.create_date UsercreateDate
 		from User u 
 		JOIN UserPwhistory up 
 		ON u.user_id = up.user_id 
 		WHERE u.user_id=#{userId} AND up.user_pw=#{userPw};
 	</select>
 	
-	<select id="selectAdminBylogin" resultType="String">
+	<select id="AdminLoginCheck" resultType="com.gd.Final.dto.AdminDto">
 		SELECT a.name
+			,a.admin_id adminId
+			,a.email
+			,a.gender
+			,a.update_date updateDate
+			,a.create_date createDate
+			,ap.admin_pw adminPw
+			,ap.create_date AdmincreateDate
 		from Admin a 
 		JOIN AdminPwhistory ap 
 		ON a.admin_id = ap.admin_id 
