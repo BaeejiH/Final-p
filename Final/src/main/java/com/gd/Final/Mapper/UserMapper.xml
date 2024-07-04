@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gd.Final.Mapper.UserMapper">
+	<select id="selectUserList" parameterType="Map" resultType="com.gd.Final.dto.UserDto">
+		SELECT username userName 
+			,user_id userId
+			,email
+			,gender
+			,update_date updateDate
+			,create_date createDate
+		from User
+		WHERE 1= 1
+		LIMIT #{beginRow},#{rowPerPage};
+	</select>
+	
+	<select id="selectUserCount" resultType="int">
+		SELECT COUNT(*) FROM User;
+	</select>
+	
+	<select id="selectUserOne" resultType="com.gd.Final.dto.UserDto">
+		SELECT username userName 	
+			,user_id userId
+			,email
+			,gender
+			,update_date updateDate
+			,create_date createDate
+		from User
+		WHERE user_id = #{userId}; 
+	</select>
+</mapper>
