@@ -30,7 +30,7 @@ public interface UserMapper {
 	// 회원정보 삭제
 	int deleteUser (String userId);
 	
-	
+
 	
 	
 }

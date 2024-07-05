@@ -58,5 +58,9 @@ public class UserService {
 	
 	}
 	
+	public int removeUser(String userId) {
+		return userMapper.deleteUser(userId);
+	}
+	
 	
 }

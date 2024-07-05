@@ -53,5 +53,9 @@
 	<button type="submit">수정</button>
 	
 	</form>
+	
+	<a href="${pageContext.request.contextPath}/removeUser?userId=${us.userId}">삭제</a>
+	
+	
 </body>
 </html>

@@ -55,12 +55,12 @@ public class UserController {
 		log.debug("userDto{}"+us);
 		return "UserOne";
 	}
-	
+	// 회원등록 폼
 	@GetMapping("/addUser")
 	public String addUser() {	
 		return "addUser";
 	}
-	
+	//회원등록 액션
 	@PostMapping("/addUser")
 	public String addUser(UserDto userDto) {
 		
@@ -85,6 +85,19 @@ public class UserController {
 		return "redirect:/UserList?userId="+userDto.getUserId();
 	}
 	
+	//삭제
+	@GetMapping("/removeUser")
+	public String removeUser(String userId) {
+		
+		int row  = userService.removeUser(userId);
+		
+		if( row == 1) {
+			log.debug("삭제 성공");
+		}else {
+			log.debug("삭제 실페");
+		}
+		return "redirect:/UserList";
+	}
 	
 	
 	
