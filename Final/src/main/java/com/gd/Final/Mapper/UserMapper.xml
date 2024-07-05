@@ -33,4 +33,13 @@
 		VALUES (#{userId},#{userName},#{email},#{gender},#{updateDate},#{createDate})		
 	</insert>
 	
+	<update id="updateUser" parameterType="com.gd.Final.dto.UserDto">
+		UPDATE User SET username= #{userName}
+						,email = #{email}
+						,gender= #{gender}
+						,update_date= #{updateDate}
+						,create_date= #{createDate}
+		WHERE user_id = #{userId}
+	</update>
+	
 </mapper>

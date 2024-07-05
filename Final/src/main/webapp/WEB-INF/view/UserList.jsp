@@ -12,9 +12,12 @@
 <body>
 	<h1>회원정보리스트</h1>
 
+	<div><a href="${pageContext.request.contextPath}/addUser"><button>회원추가</button></a></div>
+	
+	<br>
 	<table border="1">
 		<tr>
-			<td>userId</td>
+			<td>userId</td>	
 			<td>userName</td>
 		</tr>
 
@@ -24,9 +27,9 @@
 				<td><a href="${pageContext.request.contextPath}/UserOne?userId=${u.userId}">${u.userName}</a></td>
 			</tr>
 		</c:forEach>
-
+	
 	</table>
-
+	
 
 	<c:if test="${ currentPage> 1 }">
 		<a

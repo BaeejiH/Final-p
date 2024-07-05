@@ -42,6 +42,7 @@ public class UserController {
 		return "UserList";
 	}
 	
+	// 상세보기 + 회원 추가 폼
 	@GetMapping("/UserOne")
 	public String getUserOne(Model model,@RequestParam(name="userId")String userId) {
 		
@@ -68,6 +69,22 @@ public class UserController {
 		userService.addUser(userDto);
 		return "redirect:/UserList";
 	}
+	
+	// 수정 액션
+	@PostMapping("/UserOne")
+	public String modifyUser(UserDto userDto) {
+		int row = userService.modifyUser(userDto);	
+		log.debug("row:",row);
+		
+		if(row == 1) {
+			log.debug("수정성공");
+		}else {
+			log.debug("수정실패");
+		}
+		
+		return "redirect:/UserList?userId="+userDto.getUserId();
+	}
+	
 	
 	
 	
