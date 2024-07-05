@@ -21,6 +21,16 @@ public interface UserMapper {
 	// 회원 상세보기
 	UserDto selectUserOne (String userId);
 	
+	// 회원정보 추가
+	int insertUser (UserDto userDto);
+	
+	// 회원정보 수정
+	int updateUser (UserDto userDto);
+	
+	// 회원정보 삭제
+	int deleteUser (String userId);
+	
+	
 	
 	
 }

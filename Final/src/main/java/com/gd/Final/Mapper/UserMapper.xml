@@ -27,4 +27,10 @@
 		from User
 		WHERE user_id = #{userId}; 
 	</select>
+	
+	<insert id="insertUser" parameterType="com.gd.Final.dto.UserDto">
+		INSERT INTO User(user_id,username,email,gender,update_date,create_date) 
+		VALUES (#{userId},#{userName},#{email},#{gender},#{updateDate},#{createDate})		
+	</insert>
+	
 </mapper>

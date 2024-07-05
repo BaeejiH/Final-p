@@ -18,7 +18,7 @@ public class UserService {
 	
 	@Autowired
 	UserMapper userMapper;
-	
+	// 회원 전체 리스트
 	public List<UserDto> getUserList (int rowPerPage, int currentPage) {
 		Map<String,Object> paramMap = new HashMap<>();
 		paramMap.put("rowPerPage",rowPerPage);
@@ -30,7 +30,7 @@ public class UserService {
 		
 		return list;
 	}
-	
+	// 마지막 페이지
 	public int getLastPage (int rowPerPage) {
 		int cnt = userMapper.selectUserCount();
 		
@@ -42,9 +42,15 @@ public class UserService {
 		
 		return LastPage;
 	}
-	
+	// 상세보기
 	public UserDto getUserOne (String userId){
 		return userMapper.selectUserOne(userId);
 	}
+	
+	// 회원정보 추가
+	public int addUser(UserDto userdto) {
+		return userMapper.insertUser(userdto);
+	}
+	
 	
 }

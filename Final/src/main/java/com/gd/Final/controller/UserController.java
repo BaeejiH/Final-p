@@ -12,6 +12,9 @@ import com.gd.Final.Service.UserService;
 import com.gd.Final.dto.UserDto;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Slf4j
@@ -51,6 +54,21 @@ public class UserController {
 		log.debug("userDto{}"+us);
 		return "UserOne";
 	}
+	
+	@GetMapping("/addUser")
+	public String addUser() {	
+		return "addUser";
+	}
+	
+	@PostMapping("/addUser")
+	public String addUser(UserDto userDto) {
+		
+		log.debug("UserId:" +userDto.getUserId());
+		log.debug("userName:" +userDto.getUserName());
+		userService.addUser(userDto);
+		return "redirect:/UserList";
+	}
+	
 	
 	
 	
