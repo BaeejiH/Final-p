@@ -39,11 +39,13 @@ public class loginController {
 		
 		if (user != null && user.getUserPw().equals(userPw)) { // 사용자 로그인 성공
 	        log.debug("사용자 로그인 성공");
-	        session.setAttribute("loginUser", user.getUserName()); // 사용자 정보를 세션에 저장함
+	        session.setAttribute("loginUserName", user.getUserName()); // 사용자 정보를 세션에 저장함
+	        session.setAttribute("loginUser", user.getUserId());
 	        return "redirect:/user/main"; // 사용자 메인 페이지로 리다이렉트함
 	    } else if (admin != null && admin.getAdminPw().equals(userPw)) { // 관리자 로그인 성공
 	        log.debug("관리자 로그인 성공");
-	        session.setAttribute("loginAdmin", admin.getName()); // 관리자 정보를 세션에 저장함
+	        session.setAttribute("loginAdminName", admin.getName()); 
+	        session.setAttribute("loginAdmin", admin.getAdminId());// 관리자 정보를 세션에 저장함
 	        return "redirect:/admin/main"; // 관리자 메인 페이지로 리다이렉트함
 	    } else {
 	        log.debug("로그인 실패");

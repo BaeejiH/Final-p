@@ -30,6 +30,8 @@ public interface UserMapper {
 	// 회원정보 삭제
 	int deleteUser (String userId);
 	
+	// 내정보 열람 -> 회원 상세보기 Mapper 사용
+	
 
 	
 	

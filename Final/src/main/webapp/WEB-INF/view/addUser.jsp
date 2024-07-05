@@ -10,12 +10,12 @@
 	<h1>회원정보 등록</h1>
 	
 	<form action="${pageContext.request.contextPath}/addUser" method="post">
-	<table>
+	<table border="1">
 		<tr>
 			<td>userId</td>
 			<td><input type="text" name="userId"></td>
 		</tr>
-		
+												
 		<tr>
 			<td>userName</td>
 			<td><input type="text" name="userName"></td>

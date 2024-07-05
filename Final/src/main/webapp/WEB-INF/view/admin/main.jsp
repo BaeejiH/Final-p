@@ -13,15 +13,24 @@
 	
 	<h2>menu</h2>
 	
-	<div><a href="${pageContext.request.contextPath}/ex">영화 정보 열람</a></div>
+	<%
+		HttpSession sessionn = request.getSession();
+		String loginAdmin = (String) sessionn.getAttribute("loginAdmin");
+		
+		System.out.print("sessionn"+loginAdmin);
+	%>
 	
-	<div><a href="${pageContext.request.contextPath}/ex">영화추가</a></div>
+	<div>1.<a href="${pageContext.request.contextPath}/MovieList">영화 정보 열람</a></div>
 	
-	<div><a href="${pageContext.request.contextPath}/ex">회원정보 열람</a></div>
+	<div>2.<a href="${pageContext.request.contextPath}/addMovie">영화추가</a></div>
 	
-	<div><a href="${pageContext.request.contextPath}/ex">영화 대여정보 입력</a></div>
+	<div>3.<a href="${pageContext.request.contextPath}/UserList">회원정보 열람</a></div>
 	
-	<div><a href="${pageContext.request.contextPath}/ex">회원 대여정보 열람</a></div>
+	<div>4.<a href="${pageContext.request.contextPath}/addUser">회원정보 등록</a></div>
+	
+	<div>5.<a href="${pageContext.request.contextPath}/ex">영화 대여정보 입력</a></div>
+	
+	<div>6.<a href="${pageContext.request.contextPath}/ex">회원 대여정보 열람</a></div>
 	
 </body>
 </html>

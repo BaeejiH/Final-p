@@ -99,6 +99,20 @@ public class UserController {
 		return "redirect:/UserList";
 	}
 	
+	// 내정보 열람
+	@GetMapping("/MyUser")
+	public String getMyUser(Model model,@RequestParam(name="userId")String userId) {
+		
+		UserDto us = userService.getUserOne(userId);
+		
+		model.addAttribute("us",us);
+		
+		
+		log.debug("userId",userId);
+		log.debug("userDto{}"+us);
+		return "MyUser";
+	}
+	
 	
 	
 	
