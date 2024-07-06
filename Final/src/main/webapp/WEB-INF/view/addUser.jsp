@@ -48,6 +48,7 @@
 	</table>
 		
 		<button type="submit">회원등록</button>
+		
 	</form>
 	
 	

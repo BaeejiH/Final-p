@@ -64,7 +64,7 @@
 		
 		<tr>
 			<td>bcode</td>
-			<td><input type="number" name="bcode" value="${m.bcode}"></td>
+			<td><input type="text" name="bcode" value="${m.bcode}"></td>
 		</tr>
 
 	</table>

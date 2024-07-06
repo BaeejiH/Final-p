@@ -1,6 +1,7 @@
 package com.gd.Final.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class UserDto {
 	private Date createDate;
 	private String userPw;
 	private Date UsercreateDate;
+	List<UserDto> daoList;
 }

@@ -29,6 +29,7 @@
 			,runtime
 			,DESCRIPTION
 			,image
+			,bcode
 		FROM Movie 
 		WHERE movie_num = #{movieNum};
 		
