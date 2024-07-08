@@ -3,6 +3,7 @@ package com.gd.Final.Mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 
+
 import com.gd.Final.dto.AdminDto;
 import com.gd.Final.dto.UserDto;
 
@@ -14,5 +15,8 @@ public interface loginMapper {
 	
 	// 관리자 로그인
 	AdminDto AdminLoginCheck (String adminId, String adminPw);
-	// 
+	
+	// 아이디 중복검사
+	String selectUserId(String userId);
+	
 }

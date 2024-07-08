@@ -56,17 +56,17 @@ public class UserController {
 		return "UserOne";
 	}
 	// 회원등록 폼
-	@GetMapping("/addUser")
+	@GetMapping("/signUp")
 	public String addUser() {	
-		return "addUser";
+		return "signUp";
 	}
 	//회원등록 액션
-	@PostMapping("/addUser")
+	@PostMapping("/signUp")
 	public String addUser(UserDto userDto) {
 		
 		log.debug("UserId:" +userDto.getUserId());
 		log.debug("userName:" +userDto.getUserName());
-		userService.addUser(userDto);
+		userService.signUp(userDto);
 		return "redirect:/UserList";
 	}
 	

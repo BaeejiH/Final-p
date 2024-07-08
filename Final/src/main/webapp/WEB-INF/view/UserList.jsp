@@ -12,8 +12,7 @@
 <body>
 	<h1>회원정보리스트</h1>
 
-	<div><a href="${pageContext.request.contextPath}/addUser"><button>회원추가</button></a></div>
-	
+	<a href="${pageContext.request.contextPath}/user/main">메인메뉴</a>
 	<br>
 	<table border="1">
 		<tr>

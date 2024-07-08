@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gd.Final.Service.loginService;
 import com.gd.Final.dto.AdminDto;
@@ -13,6 +14,8 @@ import com.gd.Final.dto.UserDto;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Slf4j
 @Controller
@@ -59,6 +62,20 @@ public class loginController {
 		session.invalidate();
 		return "redirect:/public/login";
 	}
+	
+	// 아이디 중복체크
+	@ResponseBody //HTTP 요청의 바디내용을 통째로 자바객체로 변환해서 매핑된 메소드 파라미터로 전달해준다. 비동기 처리를 위해 필요한 어노테이션
+	@PostMapping("/public/idcheck")
+	public String																																																																																																																																																																																										 idcheck(@RequestParam(name="userId") String userId) {
+		String idResult = loginservice.selecUserId(userId);
+		
+		if(idResult == null) {
+			return "0"; // 사용 가능한 아이디
+		}else {
+			return "1"; // 이미 사용중인 아이디
+		}
+	}
+	
 	
 	
 	

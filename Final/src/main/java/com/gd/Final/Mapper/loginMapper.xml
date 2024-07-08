@@ -30,4 +30,11 @@
 		WHERE a.admin_id=#{adminId} AND ap.admin_pw=#{adminPw};
 	</select>
 	
+	<select id="selectUserId" parameterType="String" resultType="String">
+		 SELECT user_id AS userId
+		 FROM User
+		 WHERE user_id = #{userId};	
+	</select>
+	
+	
 </mapper>

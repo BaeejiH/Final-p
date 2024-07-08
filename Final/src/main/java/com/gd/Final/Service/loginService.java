@@ -1,6 +1,7 @@
 package com.gd.Final.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.gd.Final.Mapper.loginMapper;
@@ -25,6 +26,11 @@ public class loginService {
 	public AdminDto Adminlogin (String adminId, String adminPw) {
 		
 		return loginmapper.AdminLoginCheck(adminId, adminPw);
+	}
+	
+	// 아이디 중복체크
+	public String selecUserId (String userId) {
+		return loginmapper.selectUserId(userId);
 	}
 	
 }

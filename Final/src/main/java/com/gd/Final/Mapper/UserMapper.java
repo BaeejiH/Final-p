@@ -22,7 +22,7 @@ public interface UserMapper {
 	UserDto selectUserOne (String userId);
 	
 	// 회원정보 추가
-	int insertUser (UserDto userDto);
+	int signUp (UserDto userDto);
 	
 	// 회원정보 수정
 	int updateUser (UserDto userDto);

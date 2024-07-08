@@ -48,8 +48,8 @@ public class UserService {
 	}
 	
 	// 회원정보 추가
-	public int addUser(UserDto userdto) {
-		return userMapper.insertUser(userdto);
+	public int signUp(UserDto userdto) {
+		return userMapper.signUp(userdto);
 	}
 	
 	public int modifyUser(UserDto userDto) {

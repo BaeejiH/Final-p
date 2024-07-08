@@ -32,6 +32,8 @@
 	</form>
 </body>
 
+<div><a href="${pageContext.request.contextPath}/signUp">회원가입</a></div>
+
 
 <script>
 	$(function(){
