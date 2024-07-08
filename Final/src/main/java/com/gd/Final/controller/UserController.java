@@ -113,6 +113,25 @@ public class UserController {
 		return "MyUser";
 	}
 	
+	// 내정보 수정
+	@PostMapping("/MyUser")
+	public String modifyMyUser(UserDto userDto) {
+		int row = userService.modifyUser(userDto);
+		
+		log.debug("row:"+row);
+		
+		if(row == 1) {
+			log.debug("수정성공");
+		}else {
+			log.debug("수정실패");
+		}
+		
+		return "redirect:/user/main?userId="+userDto.getUserId();
+	}
+	
+	
+	
+	
 	
 	
 	

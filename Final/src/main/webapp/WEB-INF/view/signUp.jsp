@@ -21,17 +21,17 @@
 
 			<tr>
 				<td>userId</td>
-				<td><input type="text" name="userId" id="userId"></td>
+				<td><input type="text" name="userId" id="userId" maxlength="10"></td>
 			</tr>
 
 			<tr>
 				<td>userName</td>
-				<td><input type="text" name="userName"></td>
+				<td><input type="text" name="userName" maxlength="10"></td>
 			</tr>
 
 			<tr>
 				<td>email</td>
-				<td><input type="email" name="email"></td>
+				<td><input type="email" name="email" maxlength="30"></td>
 			</tr>
 
 			<tr>

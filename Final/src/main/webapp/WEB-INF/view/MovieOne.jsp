@@ -29,17 +29,17 @@
 
 		<tr>
 			<td>title</td>
-			<td><input type="text" name="title" value="${m.title}"></td>
+			<td><input type="text" name="title" value="${m.title}" maxlength="30"></td>
 		</tr>
 
 		<tr>
 			<td>director</td>
-			<td><input type="text" name="director" value="${m.director}"></td>
+			<td><input type="text" name="director" value="${m.director}" maxlength="30"></td>
 		</tr>
 
 		<tr>
 			<td>producer</td>
-			<td><input type="text" name="producer" value="${m.producer}"></td>
+			<td><input type="text" name="producer" value="${m.producer}" maxlength="30"></td>
 		</tr>
 
 		<tr>
@@ -49,12 +49,12 @@
 
 		<tr>
 			<td>runtime</td>
-			<td><input type="number" name="runtime" value="${m.runtime}"></td>
+			<td><input type="number" name="runtime" value="${m.runtime}" maxlength="5"></td>
 		</tr>
 				
 		<tr>
 			<td>description</td>
-			<td><input type="text" name="description" value="${m.description}"></td>
+			<td><input type="text" name="description" value="${m.description}" maxlength="30"></td>
 		</tr>
 
 		<tr>
@@ -64,7 +64,7 @@
 		
 		<tr>
 			<td>bcode</td>
-			<td><input type="text" name="bcode" value="${m.bcode}"></td>
+			<td><input type="text" name="bcode" value="${m.bcode}" maxlength="3"></td>
 		</tr>
 
 	</table>

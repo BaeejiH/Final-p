@@ -21,12 +21,12 @@
 		
 		<tr>
 			<td>userName</td>
-			<td><input type="text" name="userName" value="${us.userName}"></td>	
+			<td><input type="text" name="userName" value="${us.userName}" maxlength="15"></td>	
 		</tr>
 		
 		<tr>
 			<td>email</td>
-			<td><input type="email" name="email" value="${us.email}"></td>
+			<td><input type="email" name="email" value="${us.email}" maxlength="30"></td>
 		</tr>
 		
 		<tr>

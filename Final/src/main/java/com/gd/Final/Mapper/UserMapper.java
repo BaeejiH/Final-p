@@ -32,6 +32,8 @@ public interface UserMapper {
 	
 	// 내정보 열람 -> 회원 상세보기 Mapper 사용
 	
+	// 내정보 수정
+	
 
 	
 	
