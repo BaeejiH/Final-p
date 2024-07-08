@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1>Movie List</h1>
+	<%@include file = "/WEB-INF/view/header.jsp"  %>
 
 	<h3>영화 검색</h3>
 	

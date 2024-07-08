@@ -21,6 +21,11 @@
 <body>
 	<h1>내정보 열람</h1>
 	
+	<%@include file = "/WEB-INF/view/header.jsp"  %>
+	
+	
+	
+	
 	<form action="${pageContext.request.contextPath}/MyUser" method="post" id="updateForm">
 	<table border="1">
 		<tr>

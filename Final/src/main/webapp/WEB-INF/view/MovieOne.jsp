@@ -8,6 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function deleteMovieOne() {
+	    if (confirm("정말로 삭제하시겠습니까?")) {
+	        $("#MovieOneForm").submit(); 
+	    }
+	}
+</script>
 </head>
 <body>
 	<h1>MovieOne</h1>
@@ -15,7 +22,7 @@
 	
 	<c:set var="m" value="${movieDto}" /><!-- c:set 태그를 통해서 movieDto를 m으로 설정 -->
 	
-	<form action="${pageContext.request.contextPath}/MovieOne" method="post">
+	<form action="${pageContext.request.contextPath}/MovieOne" method="post" id="MovieOneForm">
 	<table border="1">
 		<tr>
 			<td>movieNum</td>
@@ -72,6 +79,8 @@
 		<button type="submit">수정</button>
 	</form>
 	
-	<a href="${pageContext.request.contextPath}/removeMovie?movieNum=${m.movieNum}">삭제</a>
+	<a href="${pageContext.request.contextPath}/removeMovie?movieNum=${m.movieNum}">
+		<button type="button" onclick="deleteMovieOne()">삭제</button>
+	</a>
 </body>
 </html>

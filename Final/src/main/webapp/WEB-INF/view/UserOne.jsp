@@ -8,11 +8,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	function deleteUserOne() {
+	    if (confirm("정말로 삭제하시겠습니까?")) {
+	        $("#UserOneForm").submit(); 
+	    }
+	}
+</script>
 </head>
 <body>
 	<h1>회원 상세보기</h1>
 	
-	<form action="${pageContext.request.contextPath}/UserOne" method="post">
+	<form action="${pageContext.request.contextPath}/UserOne" method="post" id="UserOneForm">
 	<table border="1">
 		<tr>
 			<td>userId</td>
@@ -54,7 +62,9 @@
 	
 	</form>
 	
-	<a href="${pageContext.request.contextPath}/removeUser?userId=${us.userId}">삭제</a>
+	<a href="${pageContext.request.contextPath}/removeUser?userId=${us.userId}">
+		<button type="button" onclick="deleteUserOne()">삭제</button>
+	</a>
 	
 	
 </body>

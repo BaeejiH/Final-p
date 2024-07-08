@@ -8,7 +8,7 @@
 </head>
 <body>
 		<h1>Admin Main</h1>
-	${loginAdmin}님 반갑습니다
+	${loginAdminName}님 반갑습니다
 	<a href="${pageContext.request.contextPath}/logout">로그아웃</a>
 	
 	<h2>menu</h2>
