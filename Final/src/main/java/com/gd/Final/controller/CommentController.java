@@ -1,16 +1,17 @@
 package com.gd.Final.controller;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.gd.Final.Service.CommentService;
 import com.gd.Final.dto.CommentDto;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 @Slf4j
@@ -47,6 +48,23 @@ public class CommentController {
         // 리다이렉트 시 올바른 파라미터 사용 , 파라미터 값을 넘기지 않아 오류남
         return "redirect:/MovieOne?movieNum=" + c.getMovieNum();
     }
+    
+    // 댓글 삭제
+    @PostMapping("removeComment")
+    public String removeCommentt(@RequestParam(name="commentNo") int commentN) {
+    	
+    	
+    	int row= commentService.removeComment(commentN);
+    	
+    	if(row == 1) {
+    		log.debug("댓글 삭제 성공");
+    	}else {
+    		log.debug("댓글 삭제 실패");
+    	}
+    		
+    	return "redirect:/MovieOne?movieNum=";  // MovieNum 값 넘겨줘여함
+    }
+    
       
     
 }

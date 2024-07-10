@@ -13,4 +13,10 @@
 							,NOW());
 	</insert>
 	
+	<delete id="deleteComment" parameterType="int">
+											
+		DELETE FROM comment
+		WHERE comment_no=#{commentNo};
+														
+	</delete>
 </mapper>

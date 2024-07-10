@@ -17,5 +17,9 @@ public class CommentService {
 			return commentMapper.insertComment(c);
 		}
 		
+		//댓글 삭제
+		public int removeComment(int commentNo) {
+			return commentMapper.deleteComment(commentNo);
+		}
 		
 }

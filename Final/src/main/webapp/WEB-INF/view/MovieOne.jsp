@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
 <script type="text/javascript">
 	function deleteMovieOne() {
 		if (confirm("정말로 삭제하시겠습니까?")) {
@@ -15,6 +17,34 @@
 		}
 	}
 </script>
+
+<style>
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+}
+
+.comment-section {
+	margin-top: 20px;
+}
+
+.comment {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #f9f9f9;
+}
+
+.comment .user {
+	font-weight: bold;
+	color: #333;
+}
+
+.comment .comment-text {
+	margin-top: 5px;
+	color: #666;
+}
+</style>
 </head>
 <body>
 	<h1>MovieOne</h1>
@@ -106,21 +136,42 @@
 
 	</form>
 
-	<c:choose>
-		<c:when test="${empty commentList}">
-			<tr>
-				<td colspan="2">댓글이 없습니다.</td>
-			</tr>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="c" items="${commentList}">
+	<div class="comment-section">
 
-				<div>[${c.userId}] : ${c.commentText}</div>
+		<c:choose>
+			<c:when test="${empty commentList}">
+				<tr>
+					<td colspan="2">댓글이 없습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="c" items="${commentList}">
 
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
+					<div class="comment">
+						<span class="user">${c.userId}</span> : <span class="comment-text">${c.commentText}</span>
+						
+						
+						 <c:if test="${c.userId eq sessionScope.loginUser}">
+                            <form action="${pageContext.request.contextPath}/removeComment" method="post">
+                                <input type="hidden" name="commentNo" value="${c.commentNo}">
+                                <input type="hidden" name="movieNum" value="${m.movieNum}">
+                              
+                                <button type="submit">삭제</button>
+                            </form>
+                        </c:if>
+						
+						
+					</div>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 
-	<hr>
+	</div>
+	
+		
+	
+		
+
+
 </body>
 </html>
