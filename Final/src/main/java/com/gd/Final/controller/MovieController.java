@@ -112,14 +112,5 @@ public class MovieController {
 		log.debug("Request MovieDto m" + m);
 		return "redirect:/MovieList";
 	}
-	
-
-	@GetMapping("/review")
-	public String getMethodName() {
-		return "review";
-	}
-	
-	
-	
 
 }
