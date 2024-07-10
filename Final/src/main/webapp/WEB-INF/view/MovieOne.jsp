@@ -47,6 +47,7 @@ body {
 </style>
 </head>
 <body>
+
 	<h1>MovieOne</h1>
 
 
@@ -149,28 +150,27 @@ body {
 
 					<div class="comment">
 						<span class="user">${c.userId}</span> : <span class="comment-text">${c.commentText}</span>
-						
-						
-						 <c:if test="${c.userId eq sessionScope.loginUser}">
-                            <form action="${pageContext.request.contextPath}/removeComment" method="post">
-                                <input type="hidden" name="commentNo" value="${c.commentNo}">
-                                <input type="hidden" name="movieNum" value="${m.movieNum}">
-                              
-                                <button type="submit">삭제</button>
-                            </form>
-                        </c:if>
-						
-						
+
+
+						<c:if test="${c.userId eq sessionScope.loginUser}">
+							<form action="${pageContext.request.contextPath}/removeComment"
+								method="post">
+								<input type="hidden" name="commentNo" value="${c.commentNo}">
+								<input type="hidden" name="movieNum" value="${c.movieNum}">
+
+								<button type="submit">삭제</button>
+							</form>
+						</c:if>
 					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 
 	</div>
-	
-		
-	
-		
+
+
+
+
 
 
 </body>

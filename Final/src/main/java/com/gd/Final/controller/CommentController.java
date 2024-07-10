@@ -1,16 +1,13 @@
 package com.gd.Final.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.gd.Final.Service.CommentService;
 import com.gd.Final.dto.CommentDto;
-
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 
@@ -51,10 +48,14 @@ public class CommentController {
     
     // 댓글 삭제
     @PostMapping("removeComment")
-    public String removeCommentt(@RequestParam(name="commentNo") int commentN) {
+    public String removeCommentt(@RequestParam(name="commentNo") int commentNo,
+    							 @RequestParam(name="movieNum") int movieNum ) {
     	
+    	log.debug("commentNo",commentNo);
+      	
+    	log.debug("movieNum",movieNum);
     	
-    	int row= commentService.removeComment(commentN);
+    	int row= commentService.removeComment(commentNo, movieNum);
     	
     	if(row == 1) {
     		log.debug("댓글 삭제 성공");
@@ -62,7 +63,7 @@ public class CommentController {
     		log.debug("댓글 삭제 실패");
     	}
     		
-    	return "redirect:/MovieOne?movieNum=";  // MovieNum 값 넘겨줘여함
+    	return "redirect:/MovieOne?movieNum="+movieNum;  // 리다이렉트시 movieNum값 넘겨줘야해서 requestParam으로 받아서 넣어줌.
     }
     
       

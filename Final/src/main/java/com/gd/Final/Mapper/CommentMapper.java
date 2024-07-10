@@ -10,6 +10,6 @@ public interface CommentMapper {
 	int insertComment(CommentDto c);
 	
 	// 댓글 삭제
-	int deleteComment(int commentNo);
+	int deleteComment(int commentNo, int movieNum);
 	
 }

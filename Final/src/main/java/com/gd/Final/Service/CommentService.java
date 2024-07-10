@@ -18,8 +18,7 @@ public class CommentService {
 		}
 		
 		//댓글 삭제
-		public int removeComment(int commentNo) {
-			return commentMapper.deleteComment(commentNo);
+		public int removeComment(int commentNo, int movieNum) {
+			return commentMapper.deleteComment(commentNo, movieNum);
 		}
-		
 }
