@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gd.Final.Mapper.MovieMapper;
+import com.gd.Final.dto.CommentDto;
 import com.gd.Final.dto.MovieDto;
 
 import lombok.extern.slf4j.Slf4j;
@@ -81,5 +82,13 @@ public class MovieService {
 	public int addMovie(MovieDto m) {
 		return movieMapper.insertMovie(m);
 	}
+	
+	// 댓글 목록
+	public List<CommentDto> getCommentList (int movieNum) {
+		return movieMapper.selectCommentList(movieNum);
+	}
+	
+	
+	
 
 }

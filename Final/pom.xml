@@ -31,12 +31,21 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+	
+		<dependency>
+		    <groupId>javax.servlet.jsp</groupId>
+		    <artifactId>javax.servlet.jsp-api</artifactId>
+		    <version>2.3.3</version>
+		    <scope>provided</scope>
+		</dependency>
+		
 		
 			<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<!--내장형 톰켓 jsp 라이브러리-->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
+		     <version>10.1.8</version>
 		</dependency>
 		
 		<!--jstl -->

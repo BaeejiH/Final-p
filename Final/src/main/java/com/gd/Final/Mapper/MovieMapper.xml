@@ -74,4 +74,16 @@
 						,#{bcode})
 	</insert>
 	
+	<select id="selectCommentList" parameterType="int" resultType="com.gd.Final.dto.CommentDto">
+		SELECT comment_no AS commentNo
+				,movie_num AS movieNum
+				,user_id AS userId
+				,comment_text AS commentText
+				,comment_date AS commentDate
+		FROM comment
+		where movie_num = #{movieNum};
+	</select>
+	
+	
+	
 </mapper>

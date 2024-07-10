@@ -1,10 +1,12 @@
 package com.gd.Final.Mapper;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.gd.Final.dto.CommentDto;
 import com.gd.Final.dto.MovieDto;
 
 @Mapper
@@ -30,6 +32,9 @@ public interface MovieMapper {
 	
 	// 영화 추가
 	int insertMovie(MovieDto m);
+	
+	// 댓글 목록(리스트)
+	List<CommentDto> selectCommentList (int movieNum);
 	
 	
 	

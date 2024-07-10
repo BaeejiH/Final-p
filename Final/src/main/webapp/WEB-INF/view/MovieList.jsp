@@ -9,13 +9,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-
+<%
+	if (session.getAttribute("loginUser") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
 </head>
 <body>
 	<h1>Movie List</h1>
-	<%@include file = "/WEB-INF/view/header.jsp"  %>
-
+<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
 	<h3>영화 검색</h3>
 	
 	<div ><a href="${pageContext.request.contextPath}/addMovie"><button>영화추가</button></a></div>

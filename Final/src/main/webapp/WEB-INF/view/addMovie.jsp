@@ -9,6 +9,8 @@
 <body>		
 	<h1>addMovie</h1>
 	
+	<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+	<br>
 	<form action="${pageContext.request.contextPath}/addMovie" method="post">
 	<table border="1">
 		<tr>

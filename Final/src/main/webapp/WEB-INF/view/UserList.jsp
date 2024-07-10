@@ -11,8 +11,7 @@
 </head>
 <body>
 	<h1>회원정보리스트</h1>
-
-	<a href="${pageContext.request.contextPath}/user/main">메인메뉴</a>
+	<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
 	<br>
 	<table border="1">
 		<tr>

@@ -25,12 +25,10 @@
 	<div>2.<a href="${pageContext.request.contextPath}/addMovie">영화추가</a></div>
 	
 	<div>3.<a href="${pageContext.request.contextPath}/UserList">회원정보 열람</a></div>
+		
+	<div>4.<a href="${pageContext.request.contextPath}/ex">영화 대여정보 입력</a></div>
 	
-	<div>4.<a href="${pageContext.request.contextPath}/addUser">회원정보 등록</a></div>
-	
-	<div>5.<a href="${pageContext.request.contextPath}/ex">영화 대여정보 입력</a></div>
-	
-	<div>6.<a href="${pageContext.request.contextPath}/ex">회원 대여정보 열람</a></div>
+	<div>5.<a href="${pageContext.request.contextPath}/ex">회원 대여정보 열람</a></div>
 	
 </body>
 </html>

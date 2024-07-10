@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gd.Final.Service.MovieService;
+import com.gd.Final.dto.CommentDto;
 import com.gd.Final.dto.MovieDto;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Slf4j
 @Controller
@@ -56,11 +60,26 @@ public class MovieController {
 
 	// 영화 상세보기 + 수정 폼
 	@GetMapping("/MovieOne")
-	public String getMovieOne(Model model, @RequestParam(name = "movieNum") int movieNum) {
+	public String getMovieOne(Model model, @RequestParam(name = "movieNum") int movieNum,
+								HttpSession session) {
+		
+		String userId = (String) session.getId();
+		
 		MovieDto movieDto = movieService.getMovieOne(movieNum);
+		
+		List<CommentDto> commentList = movieService.getCommentList(movieNum);
+		
 		model.addAttribute("movieDto", movieDto);
+		model.addAttribute("commentList",commentList);
+		model.addAttribute("userId",userId);
+		
+	    for (CommentDto comment : commentList) {
+            log.debug("Comment: {}", comment);
+        }
+			
 		log.debug("movieDto" + movieDto);
 		log.debug("RequestParam movieNum" + movieNum);
+		log.debug("commentList---->"+commentList);
 		return "MovieOne";
 	}
 
@@ -93,6 +112,13 @@ public class MovieController {
 		log.debug("Request MovieDto m" + m);
 		return "redirect:/MovieList";
 	}
+	
+
+	@GetMapping("/review")
+	public String getMethodName() {
+		return "review";
+	}
+	
 	
 	
 

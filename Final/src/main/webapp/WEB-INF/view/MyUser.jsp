@@ -17,54 +17,86 @@
 	    }
 	}
 </script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        display: flex;
+        flex: 1;
+        height: 100%;
+    }
+    .sidebar {
+        flex: 0 0 20%; /* 사이드바는 너비의 20%를 차지합니다. */
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-right: 1px solid #ccc;
+        height: 100%;
+    }
+    .content {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto; /* 내용이 너무 길면 세로 스크롤 추가 */
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 8px;
+        border: 1px solid #ccc;
+    }
+</style>
 </head>
 <body>
-	<h1>내정보 열람</h1>
-	
-	<%@include file = "/WEB-INF/view/header.jsp"  %>
-	
-	
-	
-	
-	<form action="${pageContext.request.contextPath}/MyUser" method="post" id="updateForm">
-	<table border="1">
-		<tr>
-			<td>userId</td>
-			<td><input type="hidden" name="userId" value="${us.userId}">${us.userId}</td>
-		</tr>
-
-		<tr>
-			<td>userName</td>
-			<td><input type="text" name="userName" value="${us.userName}" maxlength="10"></td>
-		</tr>
-
-		<tr>
-			<td>email</td>
-			<td><input type="text" name="email" value="${us.email}"maxlength="30"></td>
-		</tr>
-
-		<tr>
-			<td>gender</td>
-			<td>
-				<select name="gender">
-					<option value="남"<c:if test="${us.gender == '남'}">selected</c:if>>남</option>
-					<option value="여"<c:if test="${us.gender == '여'}">selected</c:if>>여</option>
-				</select>
-			</td>
-		</tr>
-
-		<tr>
-			<td>updateDate</td>
-			<td><input type=date name="updateDate" value="${us.updateDate}"></td>
-		</tr>
-
-		<tr>
-			<td>createDate</td>
-			<td><input type="date" name="createDate" value="${us.createDate}"></td>
-		</tr>
-	</table>
-			<button type="button" onclick="Update()">수정</button>
-	</form>
+<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+<%@include file="/WEB-INF/view/CSS/sidebar.jsp" %>
+   
+    <div class="container">
+        <div class="content">
+            <h1>내정보 열람</h1>
+            
+            <form action="${pageContext.request.contextPath}/MyUser" method="post" id="updateForm">
+                <table>
+                    <tr>
+                        <td>userId</td>
+                        <td><input type="hidden" name="userId" value="${us.userId}">${us.userId}</td>
+                    </tr>
+                    <tr>
+                        <td>userName</td>
+                        <td><input type="text" name="userName" value="${us.userName}" maxlength="10"></td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td><input type="text" name="email" value="${us.email}" maxlength="30"></td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>
+                            <select name="gender">
+                                <option value="남" <c:if test="${us.gender == '남'}">selected</c:if>>남</option>
+                                <option value="여" <c:if test="${us.gender == '여'}">selected</c:if>>여</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>updateDate</td>
+                        <td><input type="date" name="updateDate" value="${us.updateDate}"></td>
+                    </tr>
+                    <tr>
+                        <td>createDate</td>
+                        <td><input type="date" name="createDate" value="${us.createDate}"></td>
+                    </tr>
+                </table>
+                <button type="button" onclick="Update()">수정</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
