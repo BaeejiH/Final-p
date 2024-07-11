@@ -8,11 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Movie Details</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
 
 <script type="text/javascript">
 	function deleteMovieOne() {
@@ -22,114 +17,10 @@
 	}
 </script>
 
-<style>
-body {
-	font-family: Arial, sans-serif;
-	line-height: 1.6;
-	margin: 0;
-	padding: 0;
-	background-color: #f5f5f5;
-}
-
-.container {
-	width: 80%;
-	margin: 0 auto;
-}
-
-.header, .footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 1em 0;
-}
-
-.header h1, .footer p {
-	margin: 0;
-}
-
-.main-content, .comment-section {
-	background-color: #fff;
-	padding: 20px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-}
-
-.main-content h1 {
-	color: #333;
-}
-
-.main-content form, .comment-section form {
-	margin-top: 20px;
-}
-
-.table-section {
-	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
-}
-
-.table-section th, .table-section td {
-	border: 1px solid #ccc;
-	padding: 10px;
-	text-align: left;
-}
-
-.button-group {
-	margin-top: 20px;
-}
-
-.button-group button, .button-group a {
-	margin-right: 10px;
-}
-
-.comment {
-	border: 1px solid #ccc;
-	padding: 10px;
-	margin-bottom: 10px;
-	background-color: #f9f9f9;
-}
-
-.comment .user {
-	font-weight: bold;
-	color: #333;
-}
-
-.comment .comment-text {
-	margin-top: 5px;
-	color: #666;
-}
-
-.comment-section {
-	margin-top: 20px;
-}
-
-.comment-section h2 {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.comment-form {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start; 
-	margin-top: 10px;
-}
-
-textarea {	
-	width: 93%;
-	margin-right: 10px;
-	box-sizing: border-box; 
-}
-
-.comment-form button {
-	height: auto; 
-	align-self: stretch; 
-}
-
-</style>
 </head>
 <body>
+<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+
 <div class="header">
 	<h1>MovieOne</h1>
 </div>

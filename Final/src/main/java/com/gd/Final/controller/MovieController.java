@@ -112,5 +112,11 @@ public class MovieController {
 		log.debug("Request MovieDto m" + m);
 		return "redirect:/MovieList";
 	}
+	
+	@GetMapping("/CSS/header")
+	public String getMethodName() {
+		return "/CSS/header";
+	}
+	
 
 }

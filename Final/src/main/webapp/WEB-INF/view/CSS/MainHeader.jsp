@@ -2363,6 +2363,8 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 <body class="homepage is-preload">
 	<div id="page-wrapper">
 
+
+	
 		<!-- Header -->
 		<section id="header">
 			<div class="container">
@@ -2375,6 +2377,14 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 						<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
 					</ul>
 				</nav>
+				
+					<!-- Logo -->
+				<h1 id="logo">
+					<a href="index.html">Movie System</a>
+				</h1>
+				<p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
+				
+				
 				
 				<!-- User Info -->
 				<nav id="nav" class="user-info">

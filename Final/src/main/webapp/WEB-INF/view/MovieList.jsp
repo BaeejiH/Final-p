@@ -17,8 +17,9 @@
 %>
 </head>
 <body>
-	<h1>Movie List</h1>
 <%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+
+	<h1>Movie List</h1>
 	<h3>영화 검색</h3>
 	
 	<div ><a href="${pageContext.request.contextPath}/addMovie"><button>영화추가</button></a></div>
