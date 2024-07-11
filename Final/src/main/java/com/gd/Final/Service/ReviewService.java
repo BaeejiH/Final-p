@@ -15,17 +15,31 @@ import lombok.extern.slf4j.Slf4j;
 public class ReviewService {
 	
 	@Autowired
-	ReviewMapper reviewMappper;
+	ReviewMapper reviewMapper;
 	
 	// 리뷰 리스트
 	public List<ReviewDto> getReviewList () {
-		List<ReviewDto> Reviewlist = reviewMappper.selectReviewList(null);
+		List<ReviewDto> Reviewlist = reviewMapper.selectReviewList(null);
 		
 		return Reviewlist;
 	}
 	// 리뷰 등록
 	public int addReview (ReviewDto rDto) {
 			
-		return reviewMappper.insertReview(rDto);
+		return reviewMapper.insertReview(rDto);
 	}
+	
+	// 리뷰 삭제
+	public int removeReview (int reviewId) {
+		return reviewMapper.deleteReview(reviewId);
+	}
+	// 리뷰 수정
+	public int modifyReview (ReviewDto rDro) {
+		return reviewMapper.updateReview(rDro);
+	}
+	// 리뷰 상새보기
+	public ReviewDto getReviewOne (int reviewId) {
+		return reviewMapper.selectReviewOne(reviewId);
+	}
+	
 }

@@ -12,6 +12,8 @@ import com.gd.Final.dto.ReviewDto;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Slf4j
@@ -54,11 +56,49 @@ public class ReviewController {
 		
 		log.debug("row"+row);
 		
+		return "redirect:/review";	
+	}
+	
+	 // 리뷰 삭제
+	@GetMapping("/removeReview")
+	public String removeReview(@RequestParam(name="reviewId") int reviewId) {
+		
+		int row = reviewService.removeReview(reviewId);
+		
+		if(row == 1) {
+			log.debug("리뷰삭제 성공");
+		}else {
+			log.debug("리뷰삭제 실패");
+		}
+			
 		return "redirect:/review";
+	}
+	// 리뷰 상세보기+ 수정 폼
+	@GetMapping("/ReviewOne")
+	public String getReviewOne(Model model,
+							   @RequestParam(name="reviewId") int reviewId) {
+		ReviewDto rDto =  reviewService.getReviewOne(reviewId);
 		
+		model.addAttribute("rDto",rDto);
+		log.debug("rDto"+rDto);
+			
 		
+		return "ReviewOne";
 	}
 	
 	
+	// 리뷰 수정 엑션
+	@PostMapping("/modifyReview")
+	public String modifyReview(ReviewDto rDto) {
+	int row = reviewService.modifyReview(rDto);
+	
+	if(row==1) {
+		log.debug("리뷰수정 성공");
+	}else {
+		log.debug("리뷰수정 실패");
+	}
+
+	return "redirect:/review?reviewId="+rDto.getReviewId();
+	}
 	
 }

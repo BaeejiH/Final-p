@@ -55,7 +55,6 @@
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
-<%@include file="/WEB-INF/view/CSS/sidebar.jsp" %>
    
     <div class="container">
         <div class="content">

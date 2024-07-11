@@ -19,10 +19,13 @@ public interface ReviewMapper {
 	// 리뷰 삭제
 	int deleteReview (int reviewId);
 	
-	
-	
 	// 리뷰 수정
 	int updateReview(ReviewDto rDto);
+	
+	// 리뷰 상세보기
+	ReviewDto selectReviewOne (int reviewId);
+
+	
 	
 	
 }

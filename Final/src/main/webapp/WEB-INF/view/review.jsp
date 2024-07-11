@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
 	<h1>Review</h1>
 
 	<table border="1">
@@ -20,7 +22,7 @@
 
 		<c:forEach var="r" items="${Reviewlist}">
 			<tr>
-				<td>${r.reviewTitle}</td>
+				<td><a href="${pageContext.request.contextPath}/ReviewOne?reviewId=${r.reviewId}">${r.reviewTitle}</a></td>
 				<td>${r.reviewDate}</td>
 			</tr>
 
