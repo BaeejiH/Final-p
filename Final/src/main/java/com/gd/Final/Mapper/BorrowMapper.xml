@@ -6,4 +6,23 @@
 		INSERT INTO borrow (bcode,user_id,start_date,end_date) 
 		VALUES (#{bcode},#{userId},NOW(),DATE_ADD(NOW(), INTERVAL 7 DAY));
 	</insert>
+	
+	<select id="selectBorrowList" parameterType="Map" resultType="com.gd.Final.dto.BorrowDto">	
+		
+		SELECT  bcode 
+		       ,user_id AS userId
+		       , START_date AS startDate
+		       , end_date AS endDate
+		       , bhave                                                                           
+		FROM borrow		
+			
+	</select>
+	
+	<update id="updateBehave" parameterType="com.gd.Final.dto.BorrowDto">
+				
+		UPDATE borrow SET bhave = '반납완료'
+		WHERE bcode = #{bcode};
+				
+	</update>
+	
 </mapper>

@@ -9,12 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%
-if (session.getAttribute("loginUser") == null) {
-	response.sendRedirect(request.getContextPath() + "/public/login");
-	return;
-}
-%>
+	<%
+	if (session.getAttribute("loginUser") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+	%>
 </head>
 <body>
 	<%@include file="/WEB-INF/view/CSS/header.jsp"%>

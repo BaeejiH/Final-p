@@ -1,6 +1,8 @@
 package com.gd.Final.dto;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +16,5 @@ public class BorrowDto {
 	private String userId;
 	private Date startDate;
 	private Date endDate;
-	private String behave;
+	private String bhave;
 }

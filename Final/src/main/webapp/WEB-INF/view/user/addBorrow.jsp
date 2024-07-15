@@ -23,11 +23,12 @@ if (session.getAttribute("loginUser") == null) {
 
 </head>
 <body>
+<%@include file="/WEB-INF/view/CSS/header.jsp"%>
 	<h1>대여신청</h1>
 
 
 	<form action="${pageContext.request.contextPath}/user/addBorrow" method="post">
-		<table border="1">
+		<table>
 			<tr>
 				<td>Bcode</td>
 				<td><input type="number" name="bcode" value="${param.bcode}"></td>
