@@ -3,17 +3,18 @@
 <mapper namespace="com.gd.Final.Mapper.MovieMapper">
 
 	<select id="selectMovieList" parameterType="Map"
-		resultType="com.gd.Final.dto.MovieDto">
-		SELECT movie_num movieNum, title, image, bcode
-		FROM Movie
+		resultType="com.gd.Final.dto.MovieDto">	
+		SELECT m.movie_num AS movieNum, m.title, m.image, m.bcode, b.bhave
+		FROM Movie m
+		LEFT JOIN borrow b 
+		ON m.bcode = b.bcode	
 		where 1 = 1
 
 		<if test="searchMovie != null">
 			AND title LIKE CONCAT('%', #{searchMovie}, '%')
 		</if>
-
-		ORDER BY movie_num
-		LIMIT #{beginRow},#{rowPerPage};
+		ORDER BY m.movie_num
+		LIMIT #{beginRow},#{rowPerPage};		
 	</select>
 
 	<select id="selectMovieCount" resultType="int">

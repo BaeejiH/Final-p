@@ -19,5 +19,5 @@ public class MovieDto {
 	private String description;
 	private String image;
 	private int bcode;
-	
+	private String bhave;
 }
