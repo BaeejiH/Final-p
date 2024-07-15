@@ -4,7 +4,7 @@
 
 	<select id="selectMovieList" parameterType="Map"
 		resultType="com.gd.Final.dto.MovieDto">
-		SELECT movie_num movieNum, title, image
+		SELECT movie_num movieNum, title, image, bcode
 		FROM Movie
 		where 1 = 1
 

@@ -27,31 +27,33 @@
 	<form action="${pageContext.request.contextPath}/MovieList"
 		method="get">
 		
-		<div style="border: 1px solid; padding: 10px; margin: 10px;">
+		<div>
 			영화 제목:<input type="text" name="searchMovie">
-			<button style="text-align: right;" type="submit">검색</button>
+			<button type="submit">검색</button>
 		</div>
 			
 	</form>
 	
 	<br>
 	
-	<div style="border: 0.1px; padding: 10px; margin: 10px;">
-		<table border="1">
+	<div>
+		<table>
 			<tr>
 				<td>movieNum</td>
 				<td>title</td>
 				<td>image</td>
+				<td>borrow<td>
 
 
 			</tr>
 
-			<c:forEach var="m" items="${list }">
+			<c:forEach var="m" items="${list}">
 				<tr>
 					<td style="text-align: right;">${m.movieNum}</td>
 					<td><a
 						href="${pageContext.request.contextPath}/MovieOne?movieNum=${m.movieNum}">${m.title}</a></td>
 					<td>${m.image}</td>
+					<td><a href="${pageContext.request.contextPath}/user/addBorrow?bcode=${m.bcode}"><button>대여하기</button></a></td>
 				</tr>
 			</c:forEach>
 

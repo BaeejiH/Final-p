@@ -15,7 +15,7 @@
 <%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
 	<h2>로그인</h2>
 	<form action="${pageContext.request.contextPath}/public/login" method="post">
-		<table border="1" width="400px">
+		<table>
 			<tr>
 				<td>아이디</td>
 				<td align="justify"><input type="text" id="userId" name="userId"></td>

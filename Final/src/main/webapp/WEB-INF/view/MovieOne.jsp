@@ -94,7 +94,8 @@
 			<div class="button-group">
 				<button type="submit" class="btn btn-primary">수정</button>
 				<a href="${pageContext.request.contextPath}/removeMovie?movieNum=${m.movieNum}" class="btn btn-danger"
-					onclick="deleteMovieOne()">삭제</a>
+					onclick="deleteMovieOne()"><button>삭제</button></a>
+					<br><br>
 				<a href="${pageContext.request.contextPath}/review" class="btn btn-secondary">리뷰 보러 가기</a>
 			</div>
 		</form>
