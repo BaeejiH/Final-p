@@ -19,7 +19,7 @@
 	
 </head>
 <body>
-	<%@include file="/WEB-INF/view/CSS/header.jsp"%>
+	<%@include file="/WEB-INF/view/CSS/header.jsp"%>  
 
 	<h1>Movie List</h1>
 	<h3>영화 검색</h3>
