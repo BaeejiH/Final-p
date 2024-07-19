@@ -23,7 +23,7 @@ if (session.getAttribute("loginUser") == null) {
 
 </head>
 <body>
-<%@include file="/WEB-INF/view/CSS/header.jsp"%>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>대여신청</h1>
 
 

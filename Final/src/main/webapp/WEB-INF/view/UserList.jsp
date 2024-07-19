@@ -10,10 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>회원정보리스트</h1>
-	<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
 	<br>
-	<table border="1">
+	<table>
 		<tr>
 			<td>userId</td>	
 			<td>userName</td>

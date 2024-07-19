@@ -10,23 +10,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<%
-	if (session.getAttribute("loginUser") == null) {
-		response.sendRedirect(request.getContextPath() + "/public/login");
-		return;
-	}
+		if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+			response.sendRedirect(request.getContextPath() + "/public/login");
+			return;
+		}
 	%>
 	
 	
 </head>
 <body>
-	<%@include file="/WEB-INF/view/CSS/header.jsp"%>  
-
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>	
 	<h1>Movie List</h1>
 	<h3>영화 검색</h3>
-
-	<div>
-		<a href="${pageContext.request.contextPath}/addMovie"><button>영화추가</button></a>
-	</div>
 
 	<form action="${pageContext.request.contextPath}/MovieList"
 		method="get">
@@ -60,9 +55,13 @@
 					
 					<!-- 대여정보가 null이 아니라면 대여중임을 표시 -->	
 							<c:choose>
-								<c:when test="${m.bhave != null}"> 
+								<c:when test="${m.bhave == '반납완료'}">
+									<span>반납 처리중</span>
+								</c:when>
+								<c:when test="${m.bhave == '대여중'}"> 
 									<span>대여중</span>
 								</c:when>
+								
 								<c:otherwise>
 									<a	
 										href="${pageContext.request.contextPath}/user/addBorrow?bcode=${m.bcode}">

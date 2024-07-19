@@ -19,8 +19,7 @@
 
 </head>
 <body>
-<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
-
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 <div class="header">
 	<h1>MovieOne</h1>
 </div>
@@ -92,9 +91,14 @@
 
 			</table>
 			<div class="button-group">
+			<!-- 관리자 기능 -->
+			<c:if test="${loginAdmin != null }">
+			
 				<button type="submit" class="btn btn-primary">수정</button>
 				<a href="${pageContext.request.contextPath}/removeMovie?movieNum=${m.movieNum}" class="btn btn-danger"
 					onclick="deleteMovieOne()"><button>삭제</button></a>
+					
+			</c:if>			
 					<br><br>
 				<a href="${pageContext.request.contextPath}/review" class="btn btn-secondary">리뷰 보러 가기</a>
 			</div>

@@ -7,12 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>ReviewOne</h1>
 	
 	<form action="${pageContext.request.contextPath}/modifyReview" method="post">
-	<table border="1">
+	<table>
 	
 		<tr>
 			<td>reviewId</td>

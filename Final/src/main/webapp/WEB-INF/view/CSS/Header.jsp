@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
@@ -8,6 +7,9 @@
 <html>
 <head>
 <title>Strongly Typed by HTML5 UP</title>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -2367,18 +2369,44 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 		<section id="header">
 			<div class="container">
 				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
-						<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
-						<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
-						<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
-					</ul>
-				</nav>
 				
-				<!-- User Info -->
+				<c:if test="${loginUser != null }">
+					<!-- 사용자 메뉴 -->
+					<nav id="nav">
+						<ul>
+							<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
+							<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
+							<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
+							<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
+						</ul>
+					</nav>
+				</c:if>
+				
+				<c:if test="${loginAdmin != null }">
+					<!-- 관리자 메뉴 -->
+					<nav id="nav">
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/admin/main">Home</a></li>
+							<li><a href="${pageContext.request.contextPath}/MovieList">Movie</a></li>
+							<li><a href="${pageContext.request.contextPath}/addMovie">AddMovie</a></li>
+							<li><a href="${pageContext.request.contextPath}/UserList">User information</a></li>				
+							<li><a href="${pageContext.request.contextPath}/ex">Borrow information</a></li>
+							<li><a href="${pageContext.request.contextPath}/ex">ADD Borrow information</a></li>					
+					  </ul>
+					</nav>
+			
+				</c:if>
+					
 				<nav id="nav" class="user-info">
+				<!-- 사용자 이름 -->
+				<c:if test="${loginUser != null }">
 					<span>&starf;${loginUserName}&starf;</span>
+				</c:if>
+				<!-- 관리자 이름 -->
+				<c:if test="${loginAdmin != null }">
+					<span>&starf;${loginAdminName}&starf;</span>
+				</c:if>
+								
 					<a href="${pageContext.request.contextPath}/logout"><button type="button" class="btn btn-warning">Logout</button></a>
 				</nav>	
 			</div>

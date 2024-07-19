@@ -18,6 +18,7 @@
 </script>
 </head>
 <body>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>회원 상세보기</h1>
 	
 	<form action="${pageContext.request.contextPath}/UserOne" method="post" id="UserOneForm">

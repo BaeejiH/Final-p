@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>		
-	<h1>addMovie</h1>
+<body>			
+	<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	
-	<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+	<h1>addMovie</h1>
 	<br>
 	<form action="${pageContext.request.contextPath}/addMovie" method="post">
-	<table border="1">
+	<table>
 		<tr>
 			<td>genre</td>
 			<td>

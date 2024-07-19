@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<%@include file = "/WEB-INF/view/CSS/MainHeader.jsp" %>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 		<!-- Features -->
 		<section id="features">
 			<div class="container">

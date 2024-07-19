@@ -54,8 +54,7 @@
 </style>
 </head>
 <body>
-<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
-   
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>   
     <div class="container">
         <div class="content">
             <h1>내정보 열람</h1>

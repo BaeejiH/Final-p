@@ -17,7 +17,7 @@
 %>
 </head>
 <body>
-	<%@include file="/WEB-INF/view/CSS/header.jsp"%>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>BorrowList</h1>
 	
 	<table>

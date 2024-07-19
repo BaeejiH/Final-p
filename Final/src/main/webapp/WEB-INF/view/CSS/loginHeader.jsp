@@ -2363,38 +2363,14 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 <body class="homepage is-preload">
 	<div id="page-wrapper">
 
-
-	
 		<!-- Header -->
 		<section id="header">
 			<div class="container">
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
-						<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
-						<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
-						<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
-					</ul>
-				</nav>
-				
-					<!-- Logo -->
-				<h1 id="logo">
-					<a href="index.html">Movie System</a>
-				</h1>
-				<p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
-				
-				
-				
-				<!-- User Info -->
-				<nav id="nav" class="user-info">
-					<span>&starf;${loginUserName}&starf;</span>
-					<a href="${pageContext.request.contextPath}/logout"><button type="button" class="btn btn-warning">Logout</button></a>
-				</nav>	
+		
 			</div>
 		</section>
 	</div>
-			
+
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>

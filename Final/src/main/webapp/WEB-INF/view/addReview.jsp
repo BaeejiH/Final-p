@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 	<h1>AddReview</h1>
 <form action="${pageContext.request.contextPath}/addReview" method="post">
 	<table border="1">

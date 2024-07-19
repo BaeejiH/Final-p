@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<%@include file = "/WEB-INF/view/CSS/header.jsp"  %>
+<%@include file = "/WEB-INF/view/CSS/loginHeader.jsp"  %>
 	<h2>로그인</h2>
 	<form action="${pageContext.request.contextPath}/public/login" method="post">
 		<table>
