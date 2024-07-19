@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
-	<h1>회원정보리스트</h1>
+	<h1>UserList</h1>
 	<br>
 	<table>
 		<tr>

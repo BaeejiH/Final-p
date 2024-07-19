@@ -2390,7 +2390,7 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 							<li><a href="${pageContext.request.contextPath}/MovieList">Movie</a></li>
 							<li><a href="${pageContext.request.contextPath}/addMovie">AddMovie</a></li>
 							<li><a href="${pageContext.request.contextPath}/UserList">User information</a></li>				
-							<li><a href="${pageContext.request.contextPath}/ex">Borrow information</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/BorrowList">Borrow information</a></li>
 							<li><a href="${pageContext.request.contextPath}/ex">ADD Borrow information</a></li>					
 					  </ul>
 					</nav>

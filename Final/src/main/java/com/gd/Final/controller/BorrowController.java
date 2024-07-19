@@ -75,5 +75,27 @@ public class BorrowController {
 
 		return "redirect:/user/BorrowList";
 	}
+	
+	// 관리자 전체 대여정보 리스트
+		@GetMapping("/admin/BorrowList")
+		public List<BorrowDto> getBList(Model model, 
+										@RequestParam(name="rowPerPage", defaultValue = "10") int rowPerPage,
+										@RequestParam(name="currentPage", defaultValue = "1") int currentPage) {
+			List<BorrowDto> list = borrowService.getBList(rowPerPage, currentPage);
+			
+			int LastPage = borrowService.getLastPage(rowPerPage);
+			
+			model.addAttribute("list", list);
+			model.addAttribute("rowPerPage", rowPerPage);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("LastPage", LastPage);
+			
+			log.debug("list" + list);
+			
+			return list;
+		}
+
+	
+	
 
 }

@@ -13,9 +13,15 @@ public interface BorrowMapper {
 	// 회원 대여신청
 	int insertBorrow (BorrowDto b);
 	
-	// 대여정보 열람 리스트
+	//  회원 대여정보 열람 리스트
 	List<BorrowDto> selectBorrowList (String userId);
 	
-	// 대여상태 변경
+	// 회원 대여상태 변경
 	int updateBehave (BorrowDto b);
+	
+	// 관리자 전체 대여정보 열람 리스트
+	List<BorrowDto> selectBList (Map<String,Object> m);
+	
+	int selectBororowCount(int rowPerPage);
+	
 }
