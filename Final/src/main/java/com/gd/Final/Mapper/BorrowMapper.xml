@@ -9,13 +9,18 @@
 	
 	<select id="selectBorrowList" parameterType="Map" resultType="com.gd.Final.dto.BorrowDto">	
 		
-		SELECT  bcode 
-		       ,user_id AS userId
-		       , START_date AS startDate
-		       , end_date AS endDate
-		       , bhave                                                                           
-		FROM borrow		
-			
+		SELECT  t.bcode 
+				,t.user_id AS userId
+				,t1.title
+				, t.START_date AS startDate
+				, t.end_date AS endDate
+				, t.bhave                                                                           
+		FROM borrow t
+		JOIN Movie t1
+		ON (t.bcode = t1.bcode)
+		where user_id = #{userId}
+		ORDER BY t.bcode; 			
+					
 	</select>
 	
 	<update id="updateBehave" parameterType="com.gd.Final.dto.BorrowDto">

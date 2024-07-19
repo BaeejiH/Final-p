@@ -14,7 +14,7 @@ public interface BorrowMapper {
 	int insertBorrow (BorrowDto b);
 	
 	// 대여정보 열람 리스트
-	List<BorrowDto> selectBorrowList (Map<String,Object> m);
+	List<BorrowDto> selectBorrowList (String userId);
 	
 	// 대여상태 변경
 	int updateBehave (BorrowDto b);

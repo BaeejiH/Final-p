@@ -2372,8 +2372,8 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 				<nav id="nav">
 					<ul>
 						<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
-						<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
-						<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/main"><span>Borrow information</span></a></li>
+						<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList?userId=${loginUser}"><span>Movie</span></a></li>
+						<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList?userId=${loginUser}"><span>Borrow information</span></a></li>
 						<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
 					</ul>
 				</nav>

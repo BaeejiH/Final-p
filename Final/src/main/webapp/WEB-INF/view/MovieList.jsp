@@ -15,6 +15,8 @@
 		return;
 	}
 	%>
+	
+	
 </head>
 <body>
 	<%@include file="/WEB-INF/view/CSS/header.jsp"%>
@@ -89,9 +91,6 @@
 		<a
 			href="${pageContext.request.contextPath}/MovieList?currentPage=${LastPage}">마지막</a>
 	</c:if>
-
-
-
 
 </body>
 </html>

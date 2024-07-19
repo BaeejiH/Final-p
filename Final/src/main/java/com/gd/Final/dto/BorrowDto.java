@@ -17,4 +17,5 @@ public class BorrowDto {
 	private Date startDate;
 	private Date endDate;
 	private String bhave;
+	private String title;
 }

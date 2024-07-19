@@ -21,8 +21,8 @@ public class BorrowService {
 		return borrowMapper.insertBorrow(b);
 	}
 	
-	public List<BorrowDto> getBorrowList (){
-		return borrowMapper.selectBorrowList(null);
+	public List<BorrowDto> getBorrowList (String userId){
+		return borrowMapper.selectBorrowList(userId);
 	}
 	
 	public int modifyBhave(BorrowDto b) {
