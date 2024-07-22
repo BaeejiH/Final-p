@@ -30,7 +30,7 @@ output, ruby, section, summary, time, mark, audio, video {
 
 body {
     font-family: 'Source Sans Pro', Arial, sans-serif;
-    background-color : #8041D9;
+    background-color : #F6F6F6;
     background-size: cover;
     color: #fff;
     line-height: 1.65;

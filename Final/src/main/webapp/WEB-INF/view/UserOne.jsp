@@ -22,7 +22,7 @@
 	<h1>회원 상세보기</h1>
 	
 	<form action="${pageContext.request.contextPath}/UserOne" method="post" id="UserOneForm">
-	<table border="1">
+	<table>
 		<tr>
 			<td>userId</td>
 			<td><input type="hidden" name="userId" value="${us.userId}">${us.userId}</td>

@@ -25,8 +25,11 @@
 	
 	<update id="updateBehave" parameterType="com.gd.Final.dto.BorrowDto">
 				
-		UPDATE borrow SET bhave = '반납완료'
-		WHERE bcode = #{bcode};
+		UPDATE borrow 
+		SET bhave = '반납완료'
+		WHERE bcode = #{bcode} 
+		  AND user_id = #{userId} 
+		  AND bhave = '대여중';
 				
 	</update>
 	
@@ -49,6 +52,16 @@
 	<select id="selectBororowCount" resultType="int">
 		SELECT COUNT(*) FROM borrow;
 	</select>
+	
+	<update id="updateBeHaveByAdmin" parameterType="com.gd.Final.dto.BorrowDto">
+				
+		UPDATE borrow 
+		SET bhave = '대여가능'
+		WHERE bcode = #{bcode}
+		  AND user_id = #{userId}
+		  AND bhave = '반납완료';
+				
+	</update>
 	
 	
 </mapper>

@@ -41,8 +41,7 @@
 				<td style="text-align: center;">movieNum</td>
 				<td style="text-align: center;">title</td>
 				<td style="text-align: center;">image</td>
-				<td style="text-align: center;">borrow
-				<td>
+				<td style="text-align: center;">borrow<td>
 			</tr>
 
 			<c:forEach var="m" items="${list}">
@@ -61,7 +60,7 @@
 								<c:when test="${m.bhave == '대여중'}"> 
 									<span>대여중</span>
 								</c:when>
-								
+							
 								<c:otherwise>
 									<a	
 										href="${pageContext.request.contextPath}/user/addBorrow?bcode=${m.bcode}">

@@ -2377,7 +2377,6 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 							<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
 							<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
 							<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
-							<li><a class="icon solid fa-sitemap" href="${pageContext.request.contextPath}/user/main"><span>XXXX</span></a></li>
 						</ul>
 					</nav>
 				</c:if>

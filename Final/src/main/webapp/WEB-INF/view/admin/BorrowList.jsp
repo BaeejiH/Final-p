@@ -27,6 +27,7 @@
 			<td>startDate</td>
 			<td>endDate</td>
 			<td>bhave</td>
+			<td></td>
 		</tr>
 
 		<c:forEach var="br" items="${list}">
@@ -37,6 +38,21 @@
 					<td>${br.startDate}</td>
 					<td>${br.endDate}</td>
 					<td>${br.bhave}</td>
+					<td>
+						<c:choose>
+							<c:when test="${br.bhave == '반납완료'}">
+							<form action="${pageContext.request.contextPath}/modifyeBhaveByadmin" method="post">
+								<input type="hidden" name="bhave" value="${br.bhave}">
+								<input type="hidden" name="bcode" value="${br.bcode}">
+								<input type="hidden" name="userId" value="${br.userId}">
+								<button type="submit">반납확인</button>
+							</form>
+							</c:when>
+							<c:otherwise>
+								☆	☆	☆
+							</c:otherwise>
+						</c:choose>	
+					</td>
 				</tr>
 		</c:forEach>	
 		

@@ -67,7 +67,7 @@ public class UserController {
 		log.debug("UserId:" +userDto.getUserId());
 		log.debug("userName:" +userDto.getUserName());
 		userService.signUp(userDto);
-		return "redirect:/UserList";
+		return "redirect:/public/login";
 	}
 	
 	// 수정 액션

@@ -22,6 +22,9 @@ public interface BorrowMapper {
 	// 관리자 전체 대여정보 열람 리스트
 	List<BorrowDto> selectBList (Map<String,Object> m);
 	
+	// 대여정보 전체개수
 	int selectBororowCount(int rowPerPage);
 	
+	// 관리자 (회원) 대여상태 변경
+	int updateBeHaveByAdmin(BorrowDto b);
 }

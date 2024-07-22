@@ -16,6 +16,8 @@ import com.gd.Final.dto.BorrowDto;
 import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.Session;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Slf4j
 @Controller
@@ -94,6 +96,22 @@ public class BorrowController {
 			
 			return list;
 		}
+		
+	// 관리자 반납 영화 상태 변경
+		@PostMapping("/modifyeBhaveByadmin")
+		public String modifyeBhaveByadmin(BorrowDto b) {
+			
+			int row = borrowService.modifyBhaveByAdmin(b);
+			
+			if(row ==1) {
+				log.debug("변경 성공");
+			}else {
+				log.debug("변경 실패");
+			}
+			
+			return "redirect:/admin/BorrowList";
+		}
+		
 
 	
 	

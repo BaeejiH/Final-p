@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gd.Final.Mapper.MovieMapper">
-
-	<select id="selectMovieList" parameterType="Map"
-		resultType="com.gd.Final.dto.MovieDto">	
-		SELECT m.movie_num AS movieNum, m.title, m.image, m.bcode, b.bhave
-		FROM Movie m
-		LEFT JOIN borrow b 
-		ON m.bcode = b.bcode	
-		where 1 = 1
-
-		<if test="searchMovie != null">
-			AND title LIKE CONCAT('%', #{searchMovie}, '%')
-		</if>
-		ORDER BY m.movie_num
-		LIMIT #{beginRow},#{rowPerPage};		
-	</select>
+	
+	<select id="selectMovieList" parameterType="Map" resultType="com.gd.Final.dto.MovieDto">    
+	    SELECT 
+	        m.movie_num AS movieNum 
+	        ,m.title 
+	        ,m.image 
+	        ,m.bcode 
+	        ,COALESCE(latest_borrow.bhave, '대여가능') AS bhave
+	    FROM Movie m
+	    LEFT JOIN (
+	        SELECT 
+	            bcode 
+	            ,bhave
+	        FROM 
+	            borrow
+	        WHERE 
+	            end_date = (
+	                SELECT MAX(end_date) 
+	                FROM borrow b2
+	                WHERE b2.bcode = borrow.bcode
+	            )
+	    ) latest_borrow ON m.bcode = latest_borrow.bcode
+	    WHERE 1 = 1
+	
+	    <if test="searchMovie != null">
+	        AND m.title LIKE CONCAT('%', #{searchMovie}, '%')
+	    </if>
+	    ORDER BY m.movie_num
+	    LIMIT #{beginRow}, #{rowPerPage};
+</select>	
 
 	<select id="selectMovieCount" resultType="int">
 		SELECT COUNT(*) FROM

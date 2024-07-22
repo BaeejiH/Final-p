@@ -55,4 +55,9 @@ public class BorrowService {
 		
 		return LastPage;
 	}
+
+	public int modifyBhaveByAdmin(BorrowDto b) {
+		return borrowMapper.updateBeHaveByAdmin(b);
+	}
+	
 }

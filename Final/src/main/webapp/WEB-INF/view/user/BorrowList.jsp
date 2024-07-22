@@ -42,11 +42,16 @@
 						<form action="${pageContext.request.contextPath}/modifyBhave"
 							method="post">
 							<input type="hidden" name="bcode" value="${br.bcode}">
-
+							<input type="hidden" name="userId" value="${br.userId}">
 							<c:choose>
 								<c:when test="${br.bhave == '반납완료'}">
-									<span>반납이 완료된 영화입니다.</span>
+									<span>반납 처리중입니다.</span>
 								</c:when>
+								
+								<c:when test="${br.bhave == '대여가능'}">
+									<span>반납 확인이 완료되었습니다.</span>
+								</c:when>
+								
 								<c:otherwise>
 									<button type="submit">반납</button>
 								</c:otherwise>

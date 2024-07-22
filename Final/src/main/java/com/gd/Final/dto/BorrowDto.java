@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BorrowDto {
+	private int bid;
 	private int bcode;
 	private String userId;
 	private Date startDate;
