@@ -1,8 +1,11 @@
 package com.gd.Final.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -74,6 +77,33 @@ public class loginController {
 		}else {
 			return "1"; // 이미 사용중인 아이디
 		}
+	}
+	
+	// 아이디 찾기 폼
+	@GetMapping("/public/CheckId")
+	public String CheckId() {
+			
+		return"/public/CheckId";
+	}
+	
+	// 아이디 찾기 액션
+	@PostMapping("/public/CheckId")
+	public String CheckId(String email, Model model) {
+	String userId=loginservice.selectCheckId(email);
+	
+	log.debug("-----------------userId---------------"+userId);
+	
+	model.addAttribute("userId",userId);
+	
+		return "/public/CheckId";
+	}
+	
+	
+	
+	
+	@GetMapping("/public/CheckPw")
+	public String CheckPw() {
+		return"/public/CheckPw";
 	}
 	
 	

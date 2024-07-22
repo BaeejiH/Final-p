@@ -36,5 +36,13 @@
 		 WHERE user_id = #{userId};	
 	</select>
 	
+	<select id="CheckUserId" resultType="String">
+		
+		SELECT user_id 
+		FROM User
+		WHERE email = #{email};
+		
+	</select>
+	
 	
 </mapper>

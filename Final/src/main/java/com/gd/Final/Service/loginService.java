@@ -33,4 +33,9 @@ public class loginService {
 		return loginmapper.selectUserId(userId);
 	}
 	
+	// 아이디 찾기
+	public String selectCheckId(String email) {
+		return loginmapper.CheckUserId(email);
+	}
+	
 }

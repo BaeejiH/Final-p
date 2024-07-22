@@ -85,7 +85,7 @@ input[type="password"] {
 
 button {
     width: 100%;
-    background-color: #e74c3c;
+    background-color: #ED786A;
     color: #fff;
     border: none;
     padding: 10px;
@@ -136,9 +136,13 @@ button:hover {
                 </tr>
             </table>
         </form>
-        <div class="signup-link"><a href="${pageContext.request.contextPath}/signUp">회원가입</a></div>
+        <div class="signup-link">
+	        <a href="${pageContext.request.contextPath}/signUp">회원가입</a>|
+            <a href="${pageContext.request.contextPath}/public/CheckId">아이디찾기</a>|
+	        <a href="${pageContext.request.contextPath}/public/CheckPw">비밀번호찾기</a>
+        </div>
     </div>
-
+					
     <script>
         $(function(){
             $("#btnLogin").click(function(){

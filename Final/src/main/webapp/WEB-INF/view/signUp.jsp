@@ -133,7 +133,7 @@
             <button type="submit">Sign Up</button>
         </form>
     </div>
-
+ 
     <script>
         $('#idck').click(function() {
             if ($('#id').val() == '') {
