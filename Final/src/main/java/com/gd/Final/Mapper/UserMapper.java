@@ -24,6 +24,9 @@ public interface UserMapper {
 	// 회원정보 추가
 	int signUp (UserDto userDto);
 	
+	// 회원비밀번호 추가
+	int signupPW(UserDto userDto);
+	
 	// 회원정보 수정
 	int updateUser (UserDto userDto);
 	

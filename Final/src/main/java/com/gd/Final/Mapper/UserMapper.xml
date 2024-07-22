@@ -30,7 +30,12 @@
 	
 	<insert id="signUp" parameterType="com.gd.Final.dto.UserDto">
 		INSERT INTO User(user_id,username,email,gender,update_date,create_date) 
-		VALUES (#{userId},#{userName},#{email},#{gender},#{updateDate},#{createDate})		
+		VALUES (#{userId},#{userName},#{email},#{gender},NOW(),NOW())
+	</insert>	
+		
+	<insert id="signupPW"  parameterType="com.gd.Final.dto.UserDto">	
+		INSERT INTO UserPwhistory(user_id, user_pw, create_date)
+    	VALUES (#{userId},#{userPw},NOW());				
 	</insert>
 	
 	<update id="updateUser" parameterType="com.gd.Final.dto.UserDto">

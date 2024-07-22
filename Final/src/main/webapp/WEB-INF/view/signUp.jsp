@@ -44,6 +44,7 @@
     input[type="text"],
     input[type="email"],
     input[type="datetime"],
+    input[type="password"],
     select {
         width: calc(100% - 20px);
         padding: 8px;
@@ -91,6 +92,11 @@
                 <tr>
                     <td>User ID</td>
                     <td><input type="text" name="userId" id="userId" maxlength="10"></td>
+                </tr>
+                
+                 <tr>
+                    <td>User Pw</td>
+                    <td><input type="password" name="userPw" maxlength="30"></td>
                 </tr>
 
                 <tr>
