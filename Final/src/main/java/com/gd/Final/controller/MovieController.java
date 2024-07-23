@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -85,7 +86,7 @@ public class MovieController {
 
 	// 수정 액션 (상세보기에서 바로 수정)
 	@PostMapping("/MovieOne")
-	public String updateMovie(MovieDto m) {
+	public String updateMovie( MovieDto m) {
 		int row = movieService.modifyMovie(m);
 		log.debug("row" + row);
 		return "redirect:/MovieList?movieNum=" + m.getMovieNum();
