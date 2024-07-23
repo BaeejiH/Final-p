@@ -121,9 +121,10 @@
 					
 			</c:if>			
 					<br><br>
-				<a href="${pageContext.request.contextPath}/review" class="btn btn-secondary">리뷰 보러 가기</a>
-				<br><br>
-				<a href="${pageContext.request.contextPath}/Actor?movieNum=${m.movieNum}" class="btn btn-secondary">출현 배우정보</a>
+				<div>
+					<a href="${pageContext.request.contextPath}/review" class="btn btn-secondary">리뷰 보러 가기</a>&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/Actor?movieNum=${m.movieNum}" class="btn btn-secondary">출연 배우정보</a>
+				</div>
 			</div>
 		</form>
 	</div>

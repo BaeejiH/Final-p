@@ -5,6 +5,7 @@
 		 SELECT actor_id as actorId
 		 		,actor_img actorImg 
 		 		,actor_name as actorName
+		 		,actor_moviename as actorMN
 		 		,actor_gender as actorGender
 		 		,actor_age actorAge		 		
 		 FROM Actor

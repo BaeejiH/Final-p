@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>출현 배우정보</title>
+<title>출연 배우정보</title>
 
 <style>
     body {
@@ -80,7 +80,8 @@
         <div class="actor-card">
             <img src="${a.actorImg}">
             <div class="details">
-                <h3>${a.actorName}</h3>
+                <h4>${a.actorName}</h4>
+                <p class="gender">${a.actorMN}</p>
                 <p class="gender">${a.actorGender}</p>
                 <p class="age">${a.actorAge} years old</p>
             </div>
