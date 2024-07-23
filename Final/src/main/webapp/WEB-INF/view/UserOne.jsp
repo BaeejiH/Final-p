@@ -50,12 +50,12 @@
 		
 		<tr>
 			<td>updateDate</td>
-			<td><input type="datetime" name="updateDate" value="${us.updateDate}"></td>
+			<td><input type="date" name="updateDate" value="${us.updateDate}"></td>
 		</tr>
 		
 		<tr>
 			<td>createDate</td>
-			<td><input type="datetime" name="createDate" value="${us.createDate}"></td>
+			<td><input type="date" name="createDate" value="${us.createDate}"></td>
 		</tr>
 	</table>
 	

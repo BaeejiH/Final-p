@@ -17,6 +17,27 @@
 	}
 </script>
 
+
+<style>
+	.cm_icon_star {
+    display: inline-block;
+    width: 1em; 
+    height: 1em; 
+    background: url('path_to_star_icon.png') no-repeat center center; 
+    background-size: contain; 
+}
+
+
+.cm_icon_star::before {
+    content: '\2605';
+    font-family: 'Font Awesome 5 Free'; 
+    font-weight: 900; 
+    color: #FF5E00; 
+    font-size: 1.5em; 
+}
+
+</style>
+
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
@@ -110,6 +131,8 @@
 		<form action="${pageContext.request.contextPath}/comment" method="post" class="comment-form">
 			<input type="hidden" name="movieNum" value="${m.movieNum}"> 
 			<input type="hidden" name="userId" value="${session.userId }">
+			<div>평점 : <span class="cm_icon_star"></span>&nbsp;&nbsp;&nbsp;<input type="number" name="rating" step="0.1" min="0" max="5" placeholder="평점을 입력해주세요(0.0~5.0)" required ></div>
+			<br>
 			<textarea rows="5" cols="50" name="commentText"></textarea>
 			<button type="submit" class="btn btn-warning">댓글 등록</button>
 		</form>
@@ -121,6 +144,7 @@
 			<c:otherwise>
 				<c:forEach var="c" items="${commentList}">
 					<div class="comment">
+						<div><span class="cm_icon_star">${c.rating}</span></div>
 						<span class="user">${c.userId}</span> : <span class="comment-text">${c.commentText}</span>
 						<c:if test="${c.userId eq sessionScope.loginUser}">
 							<form action="${pageContext.request.contextPath}/removeComment" method="post" style="display:inline;">
@@ -137,7 +161,7 @@
 </div>
 
 <div class="footer">
-	<p>MovieOne</p>
+	<p>-</p>
 </div>
 
 </body>

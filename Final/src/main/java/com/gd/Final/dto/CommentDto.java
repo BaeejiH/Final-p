@@ -14,6 +14,7 @@ public class CommentDto {
 	private int movieNum;
 	private String userId;
 	private String commentText;
+	private float rating;
 	private Date commentDate;
 	
 }

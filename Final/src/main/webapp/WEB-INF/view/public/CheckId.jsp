@@ -73,7 +73,7 @@
     }
 
     button:hover {
-        background-color: #0056b3;
+        background-color: #F2CB61;
     }
 
     p {

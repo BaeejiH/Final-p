@@ -21,13 +21,15 @@ public class CommentController {
     @PostMapping("/comment")
     public String postMethodName(CommentDto c,
                                  @RequestParam(name="movieNum") int movieNum,
+                                 @RequestParam(name="rating") Float rating,
                                  HttpSession session) {
         
     	String userId = (String) session.getAttribute("loginUser");
     	
     	  c.setUserId(userId); // 댓글을 추가할 때 로그인한 사용자의 아이디로 댓글이 추가되기 위해 세션에서 가져오는 아이디 값으로 설정.
-          
+          c.setRating(rating); 
           log.debug("userId---------->"+userId);
+          log.debug("rating--------------->"+rating);
           
         // 파라미터 확인
         log.debug("movieNum received: " + movieNum);

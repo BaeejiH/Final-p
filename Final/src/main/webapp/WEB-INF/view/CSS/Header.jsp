@@ -1427,60 +1427,80 @@ ul.icons>li:first-child:before {
 
 /* Form */
 form label {
-	font-weight: 600;
-	text-transform: uppercase;
-	color: #888;
-	display: block;
-	margin: 0 0 1em 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin: 0 0 1em 0;
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"],
-	form select, form textarea {
-	-moz-transition: background-color 0.25s ease-in-out;
-	-webkit-transition: background-color 0.25s ease-in-out;
-	-ms-transition: background-color 0.25s ease-in-out;
-	transition: background-color 0.25s ease-in-out;
-	-webkit-appearance: none;
-	display: block;
-	border: 0;
-	background: #e8e8e8;
-	width: 100%;
-	box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	line-height: 1.25em;
-	padding: 0.75em 1em 0.75em 1em;
-}
-
-form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus,
-	form select:focus, form textarea:focus {
-	background: #f0f0f0;
-}
-
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"],
+form input[type="date"],
+form input[type="number"],
+form select, 
 form textarea {
-	min-height: 11em;
+    -moz-transition: background-color 0.25s ease-in-out;
+    -webkit-transition: background-color 0.25s ease-in-out;
+    -ms-transition: background-color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+    -webkit-appearance: none;    
+    display: block;
+    border: 0;
+    background: #e8e8e8;
+    width: 100%;
+    box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    line-height: 1.25em;
+    padding: 0.75em 1em;
 }
 
+/* Focus state */
+form input[type="text"]:focus, 
+form input[type="email"]:focus, 
+form input[type="password"]:focus,
+form input[type="date"]:focus,
+form input[type="number"]:focus,
+form select:focus, 
+form textarea:focus {
+    background: #f0f0f0;
+}
+
+/* Textarea */
+form textarea {
+    min-height: 11em;
+}
+
+/* Placeholder styles */
 form ::-webkit-input-placeholder {
-	color: #555 !important;
-	line-height: 1.35em;
+    color: #555 !important;
+    line-height: 1.35em;
 }
 
 form :-moz-placeholder {
-	color: #555 !important;
+    color: #555 !important;
 }
 
 form ::-moz-placeholder {
-	color: #555 !important;
+    color: #555 !important;
 }
 
 form :-ms-input-placeholder {
-	color: #555 !important;
+    color: #555 !important;
 }
 
+/* Remove inner border from inputs in Firefox */
 form ::-moz-focus-inner {
-	border: 0;
+    border: 0;
 }
 
+/* Remove number input spinners */
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 /* Table */
 table {
 	width: 100%;

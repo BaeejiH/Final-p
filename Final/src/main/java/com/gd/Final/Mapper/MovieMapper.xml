@@ -95,6 +95,7 @@
 				,movie_num AS movieNum
 				,user_id AS userId
 				,comment_text AS commentText
+				,rating
 				,comment_date AS commentDate
 		FROM comment
 		where movie_num = #{movieNum};

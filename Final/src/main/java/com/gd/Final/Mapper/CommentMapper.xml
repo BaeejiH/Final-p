@@ -6,10 +6,12 @@
 			INSERT INTO comment (movie_num
 							,user_id
 							,comment_text
+							,rating
 							,comment_date) 
 					VALUES (#{movieNum}
 							,#{userId}
 							,#{commentText}
+							,#{rating}
 							,NOW());
 	</insert>
 	
