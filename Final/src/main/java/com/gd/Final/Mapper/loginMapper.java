@@ -21,5 +21,5 @@ public interface loginMapper {
 	String CheckUserId(String email);
 
 	// 비밀번호 찾기
-	String CheckUserPw();
+	String CheckUserPw(String userId);
 }

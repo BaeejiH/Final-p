@@ -98,13 +98,25 @@ public class loginController {
 		return "/public/CheckId";
 	}
 	
-	
-	
-	
+	// 비밀번호 찾기 폼
 	@GetMapping("/public/CheckPw")
 	public String CheckPw() {
 		return"/public/CheckPw";
 	}
+	// 비밀번호 찾기 액션
+	@PostMapping("/public/CheckPw")
+	public String postMethodName(String userId,Model model) {
+		
+		String userPw = loginservice.selectCheckPw(userId);
+		
+		model.addAttribute("userPw",userPw);
+		
+		log.debug("-----------userPw-------------"+userPw);
+		
+		
+		return "/public/CheckPw";
+	}
+	
 	
 	
 	

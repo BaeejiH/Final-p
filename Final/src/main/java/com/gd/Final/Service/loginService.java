@@ -38,4 +38,9 @@ public class loginService {
 		return loginmapper.CheckUserId(email);
 	}
 	
+	// 비밀번호 찾기
+	public String selectCheckPw(String userId) {
+		return loginmapper.CheckUserPw(userId);
+	}
+	
 }
