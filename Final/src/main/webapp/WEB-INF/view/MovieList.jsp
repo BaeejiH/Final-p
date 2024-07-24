@@ -41,6 +41,7 @@
 				<td style="text-align: center;">movieNum</td>
 				<td style="text-align: center;">title</td>
 				<td style="text-align: center;">image</td>
+				<td style="text-align: center;">borrowCount</td>
 				<td style="text-align: center;">borrow<td>
 			</tr>
 
@@ -50,6 +51,7 @@
 					<td style="text-align: center;"><a
 						href="${pageContext.request.contextPath}/MovieOne?movieNum=${m.movieNum}">${m.title}</a></td>
 					<td style="text-align: center;">${m.image}</td>
+					<td style="text-align: center;">${m.borrow_Count}</td>
 					<td style="text-align: center;">	
 					
 					<!-- 대여정보가 null이 아니라면 대여중임을 표시 -->	

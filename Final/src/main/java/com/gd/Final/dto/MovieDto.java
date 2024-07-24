@@ -20,4 +20,5 @@ public class MovieDto {
 	private String image;
 	private int bcode;
 	private String bhave;
+	private int borrow_Count;
 }
