@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gd.Final.Mapper.MovieMapper;
 import com.gd.Final.dto.CommentDto;
+import com.gd.Final.dto.FavoriteDto;
 import com.gd.Final.dto.MovieDto;
 
 import lombok.extern.slf4j.Slf4j;
@@ -88,7 +89,10 @@ public class MovieService {
 		return movieMapper.selectCommentList(movieNum);
 	}
 	
-	
+	// 즐겨찾기 리스트
+	public List<FavoriteDto> getFavoriteList(String userId){
+		return movieMapper.selectFavoriteList(userId);
+	}
 	
 
 }

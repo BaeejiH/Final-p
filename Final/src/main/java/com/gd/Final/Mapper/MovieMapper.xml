@@ -101,6 +101,18 @@
 		where movie_num = #{movieNum};
 	</select>
 	
+	<select id="selectFavoriteList" parameterType="Map" resultType="com.gd.Final.dto.FavoriteDto">
+		SELECT t.user_id AS userId
+			   ,t.movie_num as movieNum
+			   , t1.title
+			   , t1.genre
+			   ,t.favorite_date as favoriteDate
+		FROM Favorite t
+		JOIN Movie t1
+		ON t.movie_num = t1.movie_num
+		WHERE user_id = ${userId}
+	</select>
+	
 	
 	
 </mapper>

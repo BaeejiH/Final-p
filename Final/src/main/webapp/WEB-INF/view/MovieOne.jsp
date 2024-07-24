@@ -35,7 +35,6 @@
     color: #FF5E00; 
     font-size: 1.5em; 
 }
-
 </style>
 
 </head>
@@ -139,7 +138,7 @@
 			<textarea rows="5" cols="50" name="commentText"></textarea>
 			<button type="submit" class="btn btn-warning">댓글 등록</button>
 		</form>
-
+	
 		<c:choose>
 			<c:when test="${empty commentList}">
 				<p>댓글이 없습니다.</p>

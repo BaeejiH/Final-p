@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gd.Final.Service.MovieService;
 import com.gd.Final.dto.CommentDto;
+import com.gd.Final.dto.FavoriteDto;
 import com.gd.Final.dto.MovieDto;
 
 import jakarta.servlet.http.HttpSession;
@@ -118,6 +119,25 @@ public class MovieController {
 	public String getMethodName() {
 		return "/CSS/header";
 	}
+	
+	// 회원 즐겨찾기 리스트
+	@GetMapping("/FavoriteList")
+	public String getFavoriteList(Model model, HttpSession session) {
+		
+		String userId = (String)session.getAttribute("loginUser");
+		
+		List<FavoriteDto> Favoritelist = movieService.getFavoriteList(userId);
+		
+		log.debug("Favoritelist------>"+Favoritelist);
+		log.debug("userId------------->"+userId);
+		
+		model.addAttribute("Favoritelist",Favoritelist);
+		model.addAttribute("userId",userId);
+		
+		
+		return "FavoriteList";
+	}
+	
 	
 
 }

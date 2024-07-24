@@ -2394,9 +2394,10 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 					<!-- 사용자 메뉴 -->
 					<nav id="nav">
 						<ul>
-							<li><a class="icon solid fa-home" href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
-							<li><a class="icon solid fa-cog" href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
-							<li><a class="icon solid fa-retweet" href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/FavoriteList"><span>Favorite</span></a></li>
 						</ul>
 					</nav>
 				</c:if>
