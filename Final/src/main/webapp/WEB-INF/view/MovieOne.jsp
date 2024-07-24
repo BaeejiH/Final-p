@@ -8,12 +8,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Movie Details</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
+	// 영화 상세보기 삭제 경고문구
 	function deleteMovieOne() {
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			$("#MovieOneForm").submit();
 		}
+	}
+	
+	// 즐겨찾기 버튼 추가 삭제
+	// 즐겨찾기 등록된 상태 : 검정색 하트 
+	function Favorite(movieNum) {
+		$.ajax({
+			url: "${pageContext.request.contextPath}/Favorite",
+			type: "POST",
+			data: { movieNum: movieNum },
+			success: function(response) {
+				if(response.status === 'added') {
+					alert("즐겨찾기에 추가되었습니다.");
+					$("#favoriteButton").addClass("favorited");
+				} else {
+					alert("즐겨찾기에서 제거되었습니다.");
+					$("#favoriteButton").removeClass("favorited");
+				}
+			},
+			error: function() {
+				alert("오류가 발생했습니다. 다시 시도해주세요.");
+			}
+		});
 	}
 </script>
 
@@ -35,6 +58,27 @@
     color: #FF5E00; 
     font-size: 1.5em; 
 }
+
+
+.favorite-button {
+    background: none; 
+    border: none;
+    padding: 0;
+    cursor: pointer; 
+    font-size: 24px; 
+    color: grey;
+    line-height: 1;
+}
+.favorite-button {
+    -moz-transition: none; 
+    -webkit-transition: none;
+    -ms-transition: none; 
+    transition: none; 
+    -webkit-appearance: none; 
+    text-transform: none; 
+    font-weight: normal; 
+    letter-spacing: normal;
+}
 </style>
 
 </head>
@@ -44,10 +88,17 @@
 	<h1>MovieOne</h1>
 </div>
 
+
+
 <div class="container">
 	<c:set var="m" value="${movieDto}" />
 	<!-- c:set 태그를 통해서 movieDto를 m으로 설정 -->
-
+	<div>
+		<button id="favoriteButton" class="favorite-button" onclick="Favorite(${m.movieNum})">
+		    ${Favorited == 1 ? '❤️' : '🖤'} 
+		</button>
+	</div>
+	
 	<div class="main-content">
 		<form action="${pageContext.request.contextPath}/MovieOne"
 			method="post" id="MovieOneForm">

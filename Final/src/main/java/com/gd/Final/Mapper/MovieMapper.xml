@@ -113,6 +113,18 @@
 		WHERE user_id = ${userId}
 	</select>
 	
-	
+	 <select id="Favorited" resultType="int">
+	 	SELECT COUNT(*) 
+		FROM Favorite 
+		WHERE user_id = #{userId} AND movie_num= #{movieNum};		
+    </select>
+
+    <insert id="insertFavorte">
+        INSERT INTO Favorite (user_id, movie_num,favorite_date) VALUES (#{userId}, #{movieNum},NOW())
+    </insert>
+
+    <delete id="deleteFavortie">
+        DELETE FROM Favorite WHERE user_id = #{userId} AND movie_num = #{movieNum}
+    </delete>
 	
 </mapper>

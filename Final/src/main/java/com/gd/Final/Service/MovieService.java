@@ -94,5 +94,32 @@ public class MovieService {
 		return movieMapper.selectFavoriteList(userId);
 	}
 	
+	// 즐겨찾기 기능
+	// 즐겨찾기 상태 확인 후 결과 값이 0과 같다면 즐겨찾기를 하지 않은 상태.
+	// 0이 아니라면 즐겨찾기가 되어있는 상태.-> delete문으로 실행
+	public boolean getFavorite(int moviNum, String userId) {
+		if(movieMapper.Favorited(moviNum, userId) == 0) {
+			int row = movieMapper.insertFavorte(moviNum, userId);
+			
+			if(row == 1) {
+				log.debug("즐겨찾기 추가성공");
+			}else {
+				log.debug("즐겨찾기 추가실패");
+			}
+		
+			return false; // --> 즐겨찾기에 추가 됨
+		}else {	
+			int row = movieMapper.deleteFavortie(moviNum, userId);
+			
+			if(row == 1) {
+				log.debug("즐겨찾기 삭제성공");
+			}else {
+				log.debug("즐겨찾기 삭제실패");
+			}
+			return true; // --> 즐겨찾기에 삭제 됨
+		}
+		
+	}
+	
 
 }

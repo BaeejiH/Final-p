@@ -1,7 +1,8 @@
 package com.gd.Final.controller;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gd.Final.Mapper.MovieMapper;
 import com.gd.Final.Service.MovieService;
 import com.gd.Final.dto.CommentDto;
 import com.gd.Final.dto.FavoriteDto;
@@ -27,6 +30,9 @@ public class MovieController {
 
 	@Autowired
 	MovieService movieService;
+	
+	@Autowired
+	MovieMapper movieMapper;
 
 	@GetMapping("/MovieList")
 	public String getMovie(Model model, @RequestParam(name = "rowPerPage", defaultValue = "10") int rowPerPage,
@@ -65,15 +71,19 @@ public class MovieController {
 	public String getMovieOne(Model model, @RequestParam(name = "movieNum") int movieNum,
 								HttpSession session) {
 		
-		String userId = (String) session.getId();
+		String userId = (String) session.getAttribute("loginUser");
 		
 		MovieDto movieDto = movieService.getMovieOne(movieNum);
+		
+		// 즐겨찾기 상태 확인 로직
+		int Favorited =  movieMapper.Favorited(movieNum, userId);
 		
 		List<CommentDto> commentList = movieService.getCommentList(movieNum);
 		
 		model.addAttribute("movieDto", movieDto);
 		model.addAttribute("commentList",commentList);
 		model.addAttribute("userId",userId);
+		model.addAttribute("Favorited",Favorited);
 		
 	    for (CommentDto comment : commentList) {
             log.debug("Comment: {}", comment);
@@ -137,6 +147,25 @@ public class MovieController {
 		
 		return "FavoriteList";
 	}
+	
+	// 즐겨찾기 등록제거
+	@ResponseBody
+	@PostMapping("/Favorite")
+	public Map<String, Object> getFavortie(@RequestParam(name="movieNum")int movieNum, HttpSession session) {
+		
+		String userId = (String)session.getAttribute("loginUser");
+		boolean Favorited = movieService.getFavorite(movieNum, userId);
+		
+		Map<String,Object> response = new HashMap<>();
+		
+		// 즐겨찾기 상태 확인 후 등록 or 제거
+		response.put("status", Favorited ? "removed" : "added");
+			
+		return response;
+	}
+	
+	
+	
 	
 	
 

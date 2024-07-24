@@ -41,6 +41,12 @@ public interface MovieMapper {
 	// 영화 즐겨찾기 리스트
 	List<FavoriteDto> selectFavoriteList(String userId);
 	
+	// 즐겨찾기 상태 확인
+	int Favorited (int movieNum,String userId);
+	 	
+	// 즐겨찾기 등록
+	int insertFavorte(int movieNum, String userId);
 	
-	
+	// 즐겨찾기 삭제
+	int deleteFavortie(int movieNum,String userId);
 }
