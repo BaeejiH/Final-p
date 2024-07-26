@@ -103,6 +103,12 @@
 		<form action="${pageContext.request.contextPath}/MovieOne"
 			method="post" id="MovieOneForm">
 			<table class="table-section">
+			
+				<tr>
+					<td></td>
+					<td><img src="/Final/img/${m.fileName}" width="500px;"></td>
+				</tr>
+			
 				<tr>
 					<th>movieNum</th>
 					<td><input type="hidden" name="movieNum" value="${m.movieNum}">${m.movieNum}</td>
@@ -149,15 +155,11 @@
 						value="${m.description}" maxlength="30"></td>
 				</tr>
 
-				<tr>
-					<th>image</th>
-					<td><input type="text" name="image" value="${m.image}"></td>
-				</tr>
+			
 
 				<tr>
 					<th>bcode</th>
-					<td><input type="text" name="bcode" value="${m.bcode}"
-						maxlength="3"></td>
+					<td><input type="text" name="bcode" value="${m.bcode}" maxlength="3"></td>
 				</tr>
 
 			</table>

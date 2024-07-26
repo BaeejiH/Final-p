@@ -17,6 +17,7 @@ import com.gd.Final.Service.MovieService;
 import com.gd.Final.dto.CommentDto;
 import com.gd.Final.dto.FavoriteDto;
 import com.gd.Final.dto.MovieDto;
+import com.gd.Final.dto.MovieRequest;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
@@ -118,10 +119,18 @@ public class MovieController {
 
 	// 영화 추가 액션
 	@PostMapping("/addMovie")
-	public String addMovie(MovieDto m) {
-		int row = movieService.addMovie(m);
-		log.debug("row" + row);
-		log.debug("Request MovieDto m" + m);
+	public String addMovie(MovieRequest movieRequest) {
+		log.debug("Title :" +movieRequest.getTitle());
+		log.debug("Runtime :" +movieRequest.getRuntime());
+		log.debug("ReleaseDate:" +movieRequest.getReleaseDate());
+		log.debug("Producer:" +movieRequest.getProducer());
+		log.debug("Genre:" +movieRequest.getGenre());
+		log.debug("Descrpition:" +movieRequest.getDescription());
+		log.debug("Director:" +movieRequest.getDirector());
+		log.debug("Bcode:" +movieRequest.getBcode());
+		
+		movieService.addMovie(movieRequest);
+		
 		return "redirect:/MovieList";
 	}
 	

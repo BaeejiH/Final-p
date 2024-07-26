@@ -1,14 +1,15 @@
 package com.gd.Final.dto;
 
-import lombok.AllArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class MovieDto {
+@NoArgsConstructor
+public class MovieRequest {
 	private int movieNum;
 	private String genre;
 	private String title;
@@ -18,7 +19,5 @@ public class MovieDto {
 	private int runtime;
 	private String description;
 	private int bcode;
-	private String bhave;
-	private int borrow_Count;
-	private String fileName;
+	private MultipartFile movieFile;
 }

@@ -11,7 +11,7 @@
 	
 	<h1>addMovie</h1>
 	<br>
-	<form action="${pageContext.request.contextPath}/addMovie" method="post">
+	<form action="${pageContext.request.contextPath}/addMovie" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>genre</td>
@@ -57,7 +57,7 @@
 
 		<tr>
 			<td>image</td>
-			<td><input type="text" name="image"></td>
+			<td><input type="file" name="movieFile"></td>
 		</tr>
 		
 		<tr>
