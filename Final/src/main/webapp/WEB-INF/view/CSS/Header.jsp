@@ -1434,6 +1434,7 @@ form label {
     margin: 0 0 1em 0;
 }
 
+
 form input[type="text"], 
 form input[type="email"], 
 form input[type="password"],
@@ -2380,6 +2381,9 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 	}
 	
 }
+
+
+
 </style>
 
 </head>

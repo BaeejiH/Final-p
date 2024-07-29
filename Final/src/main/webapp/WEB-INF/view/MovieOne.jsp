@@ -38,6 +38,12 @@
 			}
 		});
 	}
+	// 댓글 삭제 경고문구
+	function deleteComment() {
+		if (confirm("정말로 댓글을 삭제하시겠습니까?")) {
+			$("#CommentForm").submit();
+		}
+	}
 </script>
 
 
@@ -150,12 +156,9 @@
 				</tr>
 
 				<tr>
-					<th>줄거리</th>
-					<td><input type="text" name="description"
-						value="${m.description}" maxlength="30"></td>
+					<th>줄거리</th>		
+					<td><textarea name="description"maxlength="500">${m.description}</textarea></td>	
 				</tr>
-
-			
 
 				<tr>
 					<th>영화코드</th>
@@ -174,12 +177,12 @@
 			</c:if>			
 					<br><br>
 				<div>
-					<a href="${pageContext.request.contextPath}/review" class="btn btn-secondary">리뷰 보러 가기</a>&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/review?movieNum=${m.movieNum}" class="btn btn-secondary">리뷰 보러 가기</a>&nbsp;&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Actor?movieNum=${m.movieNum}" class="btn btn-secondary">출연 배우정보</a>
 				</div>
 			</div>
 		</form>
-	</div>
+	</div>	
 
 	<div class="comment-section">
 		<h2>댓글</h2>
@@ -202,10 +205,11 @@
 						<div><span class="cm_icon_star">${c.rating}</span></div>
 						<span class="user">${c.userId}</span> : <span class="comment-text">${c.commentText}</span>
 						<c:if test="${c.userId eq sessionScope.loginUser}">
-							<form action="${pageContext.request.contextPath}/removeComment" method="post" style="display:inline;">
+							<form action="${pageContext.request.contextPath}/removeComment" method="post" style="display:inline;" 
+							id="CommentForm">
 								<input type="hidden" name="commentNo" value="${c.commentNo}">
 								<input type="hidden" name="movieNum" value="${c.movieNum}">
-								<button type="submit" class="btn btn-danger btn-sm">삭제</button>
+								<button type="submit" class="btn btn-danger btn-sm" onclick="deleteComment()">삭제</button>
 							</form>
 						</c:if>
 					</div>
@@ -214,7 +218,7 @@
 		</c:choose>
 	</div>
 </div>
-
+	
 <div class="footer">
 	<p>-</p>
 </div>

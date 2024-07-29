@@ -11,7 +11,7 @@ import com.gd.Final.dto.ReviewDto;
 public interface ReviewMapper {
 	
 	// 리뷰 리스트
-	List<ReviewDto> selectReviewList (Map<String,Object> m) ;
+	List<ReviewDto> selectReviewList (int movieNum) ;
 	
 	// 리뷰 추가
 	int insertReview (ReviewDto rDto);

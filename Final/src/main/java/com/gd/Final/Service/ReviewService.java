@@ -18,8 +18,8 @@ public class ReviewService {
 	ReviewMapper reviewMapper;
 	
 	// 리뷰 리스트
-	public List<ReviewDto> getReviewList () {
-		List<ReviewDto> Reviewlist = reviewMapper.selectReviewList(null);
+	public List<ReviewDto> getReviewList (int movieNum) {
+		List<ReviewDto> Reviewlist = reviewMapper.selectReviewList(movieNum);
 		
 		return Reviewlist;
 	}

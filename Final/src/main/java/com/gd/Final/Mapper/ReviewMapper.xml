@@ -9,7 +9,8 @@
 			,movie_num as movieNum
 			,review_content as reviewContent
 			,review_date as reviewDate
-		FROM Review;
+		FROM Review
+		WHERE movie_num = #{movieNum};
 	</select>
 	
 	<insert id="insertReview" parameterType="com.gd.Final.dto.ReviewDto">		

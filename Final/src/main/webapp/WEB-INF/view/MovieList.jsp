@@ -15,21 +15,30 @@
 			return;
 		}
 	%>
-	
-	
+
+
+<style>
+form input[type="text"].xx{
+	width: 50%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+}
+
+</style>
+
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>	
 	<h1>영화 목록</h1>
-	<h3>영화 검색</h3>
 
 	<form action="${pageContext.request.contextPath}/MovieList"
 		method="get">
 
-		<div>
-			영화 제목:<input type="text" name="searchMovie">
-			<button type="submit">검색</button>
-		</div>
+		<div><input type="text" name="searchMovie" class="xx">
+		<button type="submit">검색</button></div>
 
 	</form>
 

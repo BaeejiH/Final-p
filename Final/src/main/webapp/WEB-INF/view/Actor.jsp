@@ -78,7 +78,7 @@
 <div class="container">
     <c:forEach var="a" items="${list}">
         <div class="actor-card">
-            <img src="${a.actorImg}">
+            <img src="/Final/img/${a.actorImg}" width="500px;">
             <div class="details">
                 <h4>${a.actorName}</h4>
                 <p class="gender">${a.actorMN}</p>

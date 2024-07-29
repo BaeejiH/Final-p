@@ -26,12 +26,14 @@ public class ReviewController {
 		
 	// 리뷰 리스트
 	@GetMapping("/review")
-	public List<ReviewDto> getReviewList(Model model) {
-		List<ReviewDto> Reviewlist = reviewService.getReviewList();
+	public List<ReviewDto> getReviewList(Model model,
+										@RequestParam(name="movieNum") int movieNum) {
+		List<ReviewDto> Reviewlist = reviewService.getReviewList(movieNum);
 		
 		model.addAttribute("Reviewlist",Reviewlist);
-		
+		model.addAttribute("movieNum",movieNum);
 		log.debug("Reviewlist"+Reviewlist);
+		log.debug("RequestParam:"+movieNum);
 		
 		return Reviewlist;
 	}
