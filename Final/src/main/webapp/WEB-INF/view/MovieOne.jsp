@@ -112,7 +112,7 @@
 			
 				<tr>
 					<td></td>
-					<td><img src="/Final/img/${m.fileName}" width="500px;"></td>
+					<td><img src="/Final/img/${m.fileName}" width="300px;"></td>
 				</tr>
 			
 				<tr>

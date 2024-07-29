@@ -2410,13 +2410,12 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 				<c:if test="${loginAdmin != null }">
 					<!-- 관리자 메뉴 -->
 					<nav id="nav">
-						<ul>
+						<ul>	
 							<li><a href="${pageContext.request.contextPath}/admin/main">Main</a></li>
 							<li><a href="${pageContext.request.contextPath}/MovieList">Movie</a></li>
 							<li><a href="${pageContext.request.contextPath}/addMovie">AddMovie</a></li>
 							<li><a href="${pageContext.request.contextPath}/UserList">UserInf</a></li>				
-							<li><a href="${pageContext.request.contextPath}/admin/BorrowList">Borrow</a></li>
-							<li><a href="${pageContext.request.contextPath}/ex">AddBorrow</a></li>					
+							<li><a href="${pageContext.request.contextPath}/admin/BorrowList">Borrow</a></li>			
 					  </ul>
 					</nav>
 			

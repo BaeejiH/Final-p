@@ -26,42 +26,42 @@
 		</tr>
 
 		<tr>
-			<td>title</td>
+			<td>제목</td>
 			<td><input type="text" name="title"></td>
 		</tr>
 
 		<tr>
-			<td>director</td>
+			<td>감독</td>
 			<td><input type="text" name="director"></td>
 		</tr>
 
 		<tr>
-			<td>producer</td>
+			<td>배급사</td>
 			<td><input type="text" name="producer"></td>
 		</tr>
 
 		<tr>
-			<td>releaseDate</td>
+			<td>개봉날짜</td>
 			<td><input type="date" name="releaseDate"></td>
 		</tr>
 
 		<tr>
-			<td>runtime</td>
+			<td>상영시간</td>
 			<td><input type="number" name="runtime"></td>
 		</tr>
 
 		<tr>
-			<td>description</td>
-			<td><input type="text" name="description"></td>
+			<th>줄거리</th>		
+			<td><textarea name="description"maxlength="500">${m.description}</textarea></td>	
 		</tr>
 
 		<tr>
-			<td>image</td>
+			<td>영화포스터</td>
 			<td><input type="file" name="movieFile"></td>
 		</tr>
 		
 		<tr>
-			<td>bcode</td>
+			<td>영화코드</td>
 			<td><input type="number" name="bcode"></td>
 		</tr>
 
