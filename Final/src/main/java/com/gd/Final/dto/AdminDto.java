@@ -18,4 +18,5 @@ public class AdminDto {
 	private Date createDate;
 	private String adminPw;
 	private Date AdmincreateDate;
+	private String newPw;
 }

@@ -2378,6 +2378,7 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 		margin-left: 0;
 		border-left: 0;
 	}
+	
 }
 </style>
 
@@ -2420,7 +2421,7 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 				<nav id="nav" class="user-info">
 				<!-- 사용자 이름 -->
 				<c:if test="${loginUser != null }">
-					<span>&starf;${loginUserName}&starf;</span>
+					<a href="${pageContext.request.contextPath}/UserOne?userId=${loginUser}"><span>&starf;${loginUserName}&starf;</span></a>
 				</c:if>
 				<!-- 관리자 이름 -->
 				<c:if test="${loginAdmin != null }">

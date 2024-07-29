@@ -51,4 +51,10 @@
 		DELETE FROM User WHERE user_id = #{userId}	
 	</delete>
 	
+	<update id="updatePw" parameterType="Map">
+		UPDATE UserPwhistory
+		SET user_pw = #{newPw}
+		WHERE user_id = #{userId} and user_pw = #{userPw};
+	</update>
+	
 </mapper>

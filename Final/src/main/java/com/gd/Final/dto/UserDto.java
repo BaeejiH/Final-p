@@ -20,4 +20,5 @@ public class UserDto {
 	private String userPw;
 	private Date UsercreateDate;
 	List<UserDto> daoList;
+	private String newPw;
 }

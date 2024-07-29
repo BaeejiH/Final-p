@@ -65,5 +65,17 @@ public class UserService {
 		return userMapper.deleteUser(userId);
 	}
 	
+	public int modifyPw(String newPw, String userId, String userPw) {
+		// 파라미터가 많을 때는 map으로 받아서 넣어줌
+		Map<String,Object> m = new HashMap<>();		
+		m.put("newPw", newPw);
+		m.put("userId", userId);
+		m.put("userPw",userPw);
+		
+		log.debug("Updating password with parameters: " + m);
+		
+		return userMapper.updatePw(m);
+	}
 	
+		
 }

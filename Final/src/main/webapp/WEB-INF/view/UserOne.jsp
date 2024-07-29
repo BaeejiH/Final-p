@@ -63,9 +63,15 @@
 	
 	</form>
 	
-	<a href="${pageContext.request.contextPath}/removeUser?userId=${us.userId}">
-		<button type="button" onclick="deleteUserOne()">삭제</button>
-	</a>
+	
+	<!-- 관리자 기능 -->
+	<c:if test="${loginAdmin != null }">
+		<a href="${pageContext.request.contextPath}/removeUser?userId=${us.userId}">
+			<button type="button" onclick="deleteUserOne()">삭제</button>
+		</a>
+	</c:if>
+	<br>
+	<a href="${pageContext.request.contextPath}/modifyPw"><button>비밀번호변경</button></a>
 	
 	
 </body>

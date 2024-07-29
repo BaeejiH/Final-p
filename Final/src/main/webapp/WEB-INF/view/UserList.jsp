@@ -11,11 +11,11 @@
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
-	<h1>UserList</h1>
+	<h1>회원리스트</h1>
 	<br>
 	<table>
 		<tr>
-			<td>userId</td>	
+			<td>사용자아이디</td>	
 			<td>userName</td>
 		</tr>
 

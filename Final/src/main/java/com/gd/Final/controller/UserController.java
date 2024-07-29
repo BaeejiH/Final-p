@@ -1,6 +1,8 @@
 package com.gd.Final.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.gd.Final.Service.UserService;
 import com.gd.Final.dto.UserDto;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -128,6 +131,37 @@ public class UserController {
 		
 		return "redirect:/user/main?userId="+userDto.getUserId();
 	}
+	
+	@GetMapping("/modifyPw")
+	public String getMethodName() {
+		return "modifyPw";
+	}
+	
+	@PostMapping("/modifyPw")
+	public String postMethodName(@RequestParam(name="userPw") String userPw,
+								 @RequestParam(name="newPw") String newPw,
+								 @RequestParam(name="userId") String userId,
+								 Model model) {
+				
+		Map<String,Object> m = new HashMap<>();
+		m.put("newPw", newPw);
+		m.put("userId", userId);
+		m.put("userPw",userPw);
+		
+		
+		int row = userService.modifyPw(newPw, userId, userPw);
+		
+		if(row == 1) {
+			log.debug("비밀번호 변경성공");
+			return "/public/login";
+		}else {
+			log.debug("비밀번호 변경실패");
+			model.addAttribute("error","현재비밀번호가 일치하지 않습니다");
+			return "modifyPw";
+		}
+		
+	}
+	
 	
 	
 	

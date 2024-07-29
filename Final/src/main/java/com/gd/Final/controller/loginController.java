@@ -45,6 +45,7 @@ public class loginController {
 		
 		if (user != null && user.getUserPw().equals(userPw)) { // 사용자 로그인 성공
 	        log.debug("사용자 로그인 성공");
+	        log.info("사용자 로그인 성공");
 	        session.setAttribute("loginUserName", user.getUserName()); // 사용자 정보를 세션에 저장함
 	        session.setAttribute("loginUser", user.getUserId());
 	        return "redirect:/user/main"; // 사용자 메인 페이지로 리다이렉트함
