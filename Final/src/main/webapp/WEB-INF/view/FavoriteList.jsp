@@ -15,9 +15,9 @@
 	
 	<table>
 		<tr>
-			<td>userId</td>
-			<td>movieNum</td>
-			<td>favoriteDate</td>
+			<td>회원아이디</td>
+			<td>영화번호</td>
+			<td>즐겨찾기날짜</td>
 		</tr>
 		
 		<c:forEach var="f" items="${Favoritelist}">

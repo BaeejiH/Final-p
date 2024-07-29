@@ -85,7 +85,7 @@
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
 <div class="header">
-	<h1>MovieOne</h1>
+	<h1>영화정보</h1>
 </div>
 
 
@@ -110,47 +110,47 @@
 				</tr>
 			
 				<tr>
-					<th>movieNum</th>
+					<th>영화번호</th>
 					<td><input type="hidden" name="movieNum" value="${m.movieNum}">${m.movieNum}</td>
 				</tr>
 
 				<tr>
-					<th>genre</th>
+					<th>장르</th>
 					<td><input type="text" name="genre" value="${m.genre}"></td>
 				</tr>
 
 				<tr>
-					<th>title</th>
+					<th>제목</th>
 					<td><input type="text" name="title" value="${m.title}"
 						maxlength="30"></td>
 				</tr>
 
 				<tr>
-					<th>director</th>
+					<th>감독</th>
 					<td><input type="text" name="director" value="${m.director}"
 						maxlength="30"></td>
 				</tr>
 
 				<tr>
-					<th>producer</th>
+					<th>배급사</th>
 					<td><input type="text" name="producer" value="${m.producer}"
 						maxlength="30"></td>
 				</tr>
 
 				<tr>
-					<th>releaseDate</th>
+					<th>개봉날짜</th>
 					<td><input type="date" name="releaseDate"
 						value="${m.releaseDate}"></td>
 				</tr>
 
 				<tr>
-					<th>runtime</th>
+					<th>상영시간</th>
 					<td><input type="number" name="runtime" value="${m.runtime}"
 						maxlength="5"></td>
 				</tr>
 
 				<tr>
-					<th>description</th>
+					<th>줄거리</th>
 					<td><input type="text" name="description"
 						value="${m.description}" maxlength="30"></td>
 				</tr>
@@ -158,7 +158,7 @@
 			
 
 				<tr>
-					<th>bcode</th>
+					<th>영화코드</th>
 					<td><input type="text" name="bcode" value="${m.bcode}" maxlength="3"></td>
 				</tr>
 

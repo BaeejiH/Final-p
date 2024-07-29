@@ -20,7 +20,7 @@
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>	
-	<h1>Movie List</h1>
+	<h1>영화 목록</h1>
 	<h3>영화 검색</h3>
 
 	<form action="${pageContext.request.contextPath}/MovieList"
@@ -38,10 +38,10 @@
 	<div>
 		<table>
 			<tr>
-				<td style="text-align: center;">movieNum</td>
-				<td style="text-align: center;">title</td>
-				<td style="text-align: center;">borrowCount</td>
-				<td style="text-align: center;">borrow<td>
+				<td style="text-align: center;">영화번호</td>
+				<td style="text-align: center;">제목</td>
+				<td style="text-align: center;">대여수</td>
+				<td style="text-align: center;">대여상태<td>
 			</tr>
 
 			<c:forEach var="m" items="${list}">

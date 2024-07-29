@@ -10,7 +10,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<meta charset="utf-8" />
+<meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -2395,9 +2395,9 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 					<!-- 사용자 메뉴 -->
 					<nav id="nav">
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/user/main"><span>Home</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/user/main"><span>Main</span></a></li>
 							<li><a href="${pageContext.request.contextPath}/MovieList"><span>Movie</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow information</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/user/BorrowList"><span>Borrow</span></a></li>
 							<li><a href="${pageContext.request.contextPath}/FavoriteList"><span>Favorite</span></a></li>
 						</ul>
 					</nav>
@@ -2407,12 +2407,12 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 					<!-- 관리자 메뉴 -->
 					<nav id="nav">
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/admin/main">Home</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/main">Main</a></li>
 							<li><a href="${pageContext.request.contextPath}/MovieList">Movie</a></li>
 							<li><a href="${pageContext.request.contextPath}/addMovie">AddMovie</a></li>
-							<li><a href="${pageContext.request.contextPath}/UserList">User information</a></li>				
-							<li><a href="${pageContext.request.contextPath}/admin/BorrowList">Borrow information</a></li>
-							<li><a href="${pageContext.request.contextPath}/ex">ADD Borrow information</a></li>					
+							<li><a href="${pageContext.request.contextPath}/UserList">UserInf</a></li>				
+							<li><a href="${pageContext.request.contextPath}/admin/BorrowList">Borrow</a></li>
+							<li><a href="${pageContext.request.contextPath}/ex">AddBorrow</a></li>					
 					  </ul>
 					</nav>
 			

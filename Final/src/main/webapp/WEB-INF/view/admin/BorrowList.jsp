@@ -17,16 +17,16 @@
 </head>
 <body>	
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
-	<h1>BorrowList</h1>
+	<h1>대여목록</h1>
 	
 	<table>
 		<tr>
-			<td>bcdoe</td>
-			<td>userId</td>
-			<td>title</td>
-			<td>startDate</td>
-			<td>endDate</td>
-			<td>bhave</td>
+			<td>영화코드</td>
+			<td>회원아이디</td>
+			<td>제목</td>
+			<td>대여날짜</td>
+			<td>반납날짜</td>
+			<td>대여상태</td>
 			<td></td>
 		</tr>
 

@@ -11,12 +11,12 @@
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>
-	<h1>Review</h1>
+	<h1>리뷰</h1>
 
 	<table>
 		<tr>
-			<td>reviewTitle</td>
-			<td>reviewDate</td>
+			<td>제목</td>
+			<td>리뷰날짜</td>
 		</tr>
 
 		<c:forEach var="r" items="${Reviewlist}">
