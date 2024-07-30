@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gd.Final.Mapper.MainMapper">
+
+	<select id="selectRecommand" parameterType="Map" resultType="com.gd.Final.dto.MovieFileDto">
+		  SELECT t.file_name AS fileName
+			     ,t.movie_num AS movieNum
+			     ,TRUNCATE(AVG(t2.rating), 1) AS avgRating
+			FROM Movie_file t
+	   LEFT JOIN comment t2 
+			  ON t.movie_num = t2.movie_num
+	    GROUP BY t.file_name, t.movie_num
+	    ORDER BY t.movie_num;
+	</select>
+
+</mapper>

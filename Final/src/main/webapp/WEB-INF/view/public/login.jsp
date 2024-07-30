@@ -12,154 +12,255 @@
 <link rel="stylesheet" type="text/css" href="path/to/your/styles.css">
 
 <style>
-/* 기본 리셋 및 박스 모델 설정 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
+* {
+  box-sizing: border-box;
+}
 body {
-    font-family: 'Source Sans Pro', Arial, sans-serif;
-    background-color : #F6F6F6;
-    background-size: cover;
-    color: #fff;
-    line-height: 1.65;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
 }
-
-/* 중앙에 위치한 컨테이너 */
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ebecf0;
+  overflow: hidden;
+}
 .container {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+  border-radius: 10px;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
+  position: absolute;
+  width: 768px;
+  min-height: 480px;
+  overflow: hidden;
 }
-
-h2 {
-    color: #f39c12;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
 form {
-    margin: 0;
-    padding: 0;
+  background: #ebecf0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
-
-table {
-    width: 100%;
-    border-spacing: 0;
+form input {
+  background: #eee;
+  padding: 16px;
+  margin: 8px 0;
+  width: 85%;
+  border: 0;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
 }
-
-td {
-    padding: 10px;
-    text-align: left;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    background: #333;
-    color: #fff;
-    font-size: 14px;
-}
-
 button {
-    width: 100%;
-    background-color: #ED786A;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 15px 45px;
+  margin: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 80ms ease-in;
+}
+.form_btn {
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+}
+.form_btn:active {
+  box-shadow: inset 1px 1px 2px #ed786a, inset -1px -1px 2px #fff;
+}
+.overlay_btn {
+  background-color: #ed786a;
+  color: #fff;
+  box-shadow: -5px -5px 10px #FFD8D8, 5px 5px 8px #bf4b2b;
+}
+.sign-in-container {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.sign-up-container {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.overlay-left {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  background-color: #ed786a;
+  color: #fff;
+  transition: all 0.5s;
+}
+.overlay-right {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #ed786a;
+  color: #fff;
+  transition: all 0.5s;
+}
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 2;
+}
+.container.right-panel-active .overlay-right {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.container.right-panel-active .overlay-left {
+  transform: translateX(-100%);
+  opacity: 1;
+  z-index: 2;
+}
+.social-links {
+  margin: 20px 0;
+}
+form h1 {
+  font-weight: bold;
+  margin: 0;		
+  color: #000;
 }
 
-button:hover {
-    background-color: #c0392b;
+p {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
 }
-
-.signup-link {
-    margin-top: 20px;
-    font-size: 14px;
+span {
+  font-size: 12px;
+  color: #000;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
-
-.signup-link a {
-    color: #f39c12;
-    text-decoration: none;
+.social-links div {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  border-radius: 50%;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+  cursor: pointer;
 }
-
-.signup-link a:hover {
-    text-decoration: underline;
+.social-links a {
+  color: #000;
 }
-
+.social-links div:active {
+  box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
+}
 </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>로그인</h2>
-        <form action="${pageContext.request.contextPath}/public/login" method="post">
-            <table>
-                <tr>
-                    <td>아이디</td>
-                    <td><input type="text" id="userId" name="userId"></td>
-                </tr>
-                <tr>
-                    <td>비밀번호</td>
-                    <td><input type="password" id="userPw" name="userPw"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit" id="btnLogin">로그인</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <div class="signup-link">
-	        <a href="${pageContext.request.contextPath}/signUp">회원가입</a>|
-            <a href="${pageContext.request.contextPath}/public/CheckId">아이디찾기</a>|
-	        <a href="${pageContext.request.contextPath}/public/CheckPw">비밀번호찾기</a>
-        </div>
-    </div>
-					
-    <script>
-        $(function(){
-            $("#btnLogin").click(function(){
-                let userId = $("#userId").val();
-                let userPw = $("#userPw").val(); 
-                if(userId === ""){
-                    alert("아이디를 입력하세요");
-                    $("#userId").focus();
-                    return; 
-                }
-                if(userPw === ""){
-                    alert("비밀번호를 입력하세요"); 
-                    $("#userPw").focus();
-                    return;
-                }
-            });
-        });
-    </script>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="sign-up-container">
+				<form>
+					<h1>Create Account</h1>
+					<div class="social-links">
+						<div>
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						</div>
+						<div>
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						</div>
+						<div>
+							<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<span>or use your email for registration</span> <input type="text"
+						placeholder="Name"> <input type="email"
+						placeholder="Email"> <input type="password"
+						placeholder="Password">
+					<button class="form_btn">Sign Up</button>
+				</form>
+			</div>
+			<div class="sign-in-container">
+				<form action="${pageContext.request.contextPath}/public/login"
+					method="post">
+					<h1>Sign In</h1>
+					<div class="social-links">
+						<div>
+							<a href="${pageContext.request.contextPath}/public/CheckId"><i class="fa fa-user" aria-hidden="true"></i></a>
+						</div>
+						<div>
+							<a href="${pageContext.request.contextPath}/public/CheckPw"><i class="fa fa-key" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<span>or use your account</span> <input type="text" id="userId"
+						name="userId" placeholder="id"> <input type="password"
+						id="userPw" name="userPw" placeholder="password">
+					<button type="submit" class="form_btn"  id="btnLogin" >Sign In</button>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay-left">
+					<h1>Welcome Back</h1>
+					<p>To keep connected with us please login with your personal
+						info</p>
+					<button id="signIn" class="overlay_btn">Sign In</button>
+				</div>
+				<div class="overlay-right">
+					<h2>Hello, Member</h2>
+					<p>Enter your personal details and start borrow movie with us</p>
+					<a href="${pageContext.request.contextPath}/signUp"><button id="signUp" class="overlay_btn">Sign Up</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function() {
+			$("#btnLogin").click(function() {
+				let userId = $("#userId").val();
+				let userPw = $("#userPw").val();
+				if (userId === "") {
+					alert("아이디를 입력하세요");
+					$("#userId").focus();
+					return;
+				}
+				if (userPw === "") {
+					alert("비밀번호를 입력하세요");
+					$("#userPw").focus();
+					return;
+				}
+			});
+		});
+	</script>
 </body>
 </html>

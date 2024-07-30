@@ -173,6 +173,13 @@ public class MovieController {
 		return response;
 	}
 	
+	//영화대여 규칙
+	@GetMapping("MovieRule")
+	public String getMovieRule() {
+		return "MovieRule";
+	}
+	
+	
 	
 	
 	

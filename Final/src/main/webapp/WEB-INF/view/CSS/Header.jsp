@@ -30,6 +30,11 @@ License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+/*사용자 관리자 이름*/
+
+
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
@@ -2424,18 +2429,18 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 				<nav id="nav" class="user-info">
 				<!-- 사용자 이름 -->
 				<c:if test="${loginUser != null }">
-					<a href="${pageContext.request.contextPath}/UserOne?userId=${loginUser}"><span>&starf;${loginUserName}&starf;</span></a>
+					<a href="${pageContext.request.contextPath}/UserOne?userId=${loginUser}"><img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" width="30px"><span>${loginUserName}</span></a>
 				</c:if>
 				<!-- 관리자 이름 -->
 				<c:if test="${loginAdmin != null }">
-					<span>&starf;${loginAdminName}&starf;</span>
+					<img src="https://cdn-icons-png.flaticon.com/512/1827/1827836.png" width="30px"><span>${loginAdminName}</span>
 				</c:if>
 								
 					<a href="${pageContext.request.contextPath}/logout"><button type="button" class="btn btn-warning">Logout</button></a>
 				</nav>	
 			</div>
 		</section>
-	</div>
+	</div>	
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

@@ -16,4 +16,5 @@ public class MovieFileDto {
 	private long fileSize;
 	private String updateDate;
 	private String createDate;
+	private float avgRating;
 }

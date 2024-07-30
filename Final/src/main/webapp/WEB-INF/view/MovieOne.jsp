@@ -156,7 +156,7 @@
 				</tr>
 
 				<tr>
-					<th>줄거리</th>		
+					<th>소개</th>		
 					<td><textarea name="description"maxlength="500">${m.description}</textarea></td>	
 				</tr>
 
@@ -178,7 +178,8 @@
 					<br><br>
 				<div>
 					<a href="${pageContext.request.contextPath}/review?movieNum=${m.movieNum}" class="btn btn-secondary">리뷰 보러 가기</a>&nbsp;&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Actor?movieNum=${m.movieNum}" class="btn btn-secondary">출연 배우정보</a>
+					<a href="${pageContext.request.contextPath}/Actor?movieNum=${m.movieNum}" class="btn btn-secondary">출연 배우정보</a>&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/MovieList" class="btn btn-secondary">대여이동</a>
 				</div>
 			</div>
 		</form>
@@ -189,7 +190,7 @@
 		<form action="${pageContext.request.contextPath}/comment" method="post" class="comment-form">
 			<input type="hidden" name="movieNum" value="${m.movieNum}"> 
 			<input type="hidden" name="userId" value="${session.userId }">
-			<div>평점 : <span class="cm_icon_star"></span>&nbsp;&nbsp;&nbsp;<input type="number" name="rating" step="0.1" min="0" max="5" placeholder="평점을 입력해주세요(0.0~5.0)" required ></div>
+			<div>평점 : <span class="cm_icon_star"></span>&nbsp;&nbsp;&nbsp;<input type="number" name="rating" step="0.1" min="0" max="10" placeholder="평점을 입력해주세요(0.0~10.0)" required ></div>
 			<br>
 			<textarea rows="5" cols="50" name="commentText"></textarea>
 			<button type="submit" class="btn btn-warning">댓글 등록</button>
