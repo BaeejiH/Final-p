@@ -11,37 +11,32 @@
 	<h1>ReviewOne</h1>
 	
 	<form action="${pageContext.request.contextPath}/modifyReview" method="post">
-	<table>
+	<table style="width:1000px;">
 	
 		<tr>
-			<td>reviewId</td>
-			<td><input type="hidden" name="reviewId" maxlength="30" value="${rDto.reviewId}">${rDto.reviewId}</td>
+			<td><input type="hidden" name="reviewId" maxlength="30" value="${rDto.reviewId}"></td>
 		</tr>	
 			
 		<tr>
-			<td>review_title</td>
-			<td><input type="text" name="reviewTitle" maxlength="30" value="${rDto.reviewTitle}"></td>
+			<td><input type="text" name="reviewTitle" maxlength="30" value="제목:${rDto.reviewTitle}"></td>
 		</tr>
 
 		<tr>
-			<td>userId</td>
-			<td><input type="text" name="userId" maxlength="10"  value="${rDto.userId}"></td>
+			<td><input type="text" name="userId" maxlength="10"  value="회원아이디:${rDto.userId}"></td>
 		</tr>
+	
 
 		<tr>
-			<td>movieNum</td>
 			<td><input type="number" name="movieNum" maxlength="10"  value="${rDto.movieNum}"></td>
 		</tr>
 
 		<tr>
-			<td>reviewContent</td>
 			<td>
-				<textarea name="reviewContent" maxlength="200">${rDto.reviewContent}"</textarea>
+				<textarea name="reviewContent">${rDto.reviewContent}"</textarea>
 			</td>
 		</tr>
 		
 		<tr>
-			<td>reviewDate</td>
 			<td><input type="date" name="reviewDate"  value="${rDto.reviewDate}"></td>
 		</tr>
 		

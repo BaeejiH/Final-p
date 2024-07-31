@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.gd.Final.Service.ReviewService;
 import com.gd.Final.dto.ReviewDto;
+import com.gd.Final.dto.ReviewRequest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,19 +47,11 @@ public class ReviewController {
 	}
 	// 리뷰 등록 액션
 	@PostMapping("/addReview")
-	public String addReview(ReviewDto rDto) {
+	public String addReview(ReviewRequest reviewRequest) {
 		
-		int row = reviewService.addReview(rDto);
+		reviewService.addReview(reviewRequest);
 		
-		if(row ==1) {
-			log.debug("--------리뷰등록완료----------");
-		}else {
-			log.debug("--------리뷰등록실패----------");
-		}
-		
-		log.debug("row"+row);
-		
-		return "redirect:/review";	
+		return "redirect:/review?movieNum="+reviewRequest.getMovieNum();	
 	}
 	
 	 // 리뷰 삭제
@@ -100,7 +93,7 @@ public class ReviewController {
 		log.debug("리뷰수정 실패");
 	}
 
-	return "redirect:/review?reviewId="+rDto.getReviewId();
+	return "redirect:/review?movieNum="+rDto.getMovieNum();
 	}
 	
 }

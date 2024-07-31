@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.gd.Final.dto.ReviewDto;
 
-@Mapper
+@Mapper	
 public interface ReviewMapper {
 	
 	// 리뷰 리스트

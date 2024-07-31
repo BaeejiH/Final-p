@@ -3,19 +3,35 @@
 <mapper namespace="com.gd.Final.Mapper.ReviewMapper">
 
 	<select id="selectReviewList" parameterType="Map" resultType="com.gd.Final.dto.ReviewDto">
-		SELECT review_id as reviewId
-			,review_title as reviewTitle
-			,user_id as userId
-			,movie_num as movieNum
-			,review_content as reviewContent
-			,review_date as reviewDate
-		FROM Review
-		WHERE movie_num = #{movieNum};
+	    SELECT t.review_id as reviewId
+			  ,t.review_title as reviewTitle
+			  ,t.user_id as userId
+			  ,t.movie_num as movieNum
+			  ,t.review_content as reviewContent
+			  ,t.review_date as reviewDate
+			  ,t1.file_name AS fileName
+		  FROM Review t
+		  JOIN Review_file t1
+		    ON t.review_id = t1.review_id
+	     WHERE movie_num = #{movieNum};
 	</select>
 	
-	<insert id="insertReview" parameterType="com.gd.Final.dto.ReviewDto">		
-		INSERT INTO Review (user_id,review_title,movie_num,review_content,review_date) 
-		VALUES (#{userId},#{reviewTitle},#{movieNum},#{reviewContent},#{reviewDate});
+	<insert id="insertReview" parameterType="com.gd.Final.dto.ReviewDto">	
+	
+		<selectKey order="AFTER" resultType="int" keyProperty="reviewId">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		
+		INSERT INTO Review (user_id
+						   ,review_title
+						   ,movie_num
+						   ,review_content
+						   ,review_date) 
+					VALUES (#{userId}
+						   ,#{reviewTitle}
+						   ,#{movieNum}
+						   ,#{reviewContent}
+						   ,#{reviewDate});
 	</insert>
 	
 	<delete id="deleteReview" parameterType="int">
@@ -33,13 +49,13 @@
 	
 	<select id="selectReviewOne" parameterType="Map" resultType="com.gd.Final.dto.ReviewDto">
 		SELECT review_id as reviewId
-			,review_title as reviewTitle
-			,user_id as userId
-			,movie_num as movieNum
-			,review_content as reviewContent
-			,review_date as reviewDate
-		FROM Review
-		WHERE review_id = #{reviewId};
+			  ,review_title as reviewTitle
+			  ,user_id as userId
+			  ,movie_num as movieNum
+			  ,review_content as reviewContent
+			  ,review_date as reviewDate
+		  FROM Review
+	     WHERE review_id = #{reviewId};
 		
 	</select>
 </mapper>

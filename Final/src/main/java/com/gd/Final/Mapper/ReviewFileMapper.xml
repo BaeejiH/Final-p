@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gd.Final.Mapper.ReviewFileMapper">
+
+	<insert id="insertReviewFile" parameterType="com.gd.Final.dto.ReviewFileDto">
+		 INSERT INTO Review_file (
+			 review_id
+			 ,file_name
+			 ,original_name
+			 ,file_type
+			 ,file_size
+			 ,update_date
+			 ,create_date
+		 ) VALUES (
+			 #{reviewId}
+			 ,#{fileName}
+			 ,#{originalName}
+			 ,#{fileType}
+			 ,#{fileSize}
+			 ,NOW()
+			 ,NOW()
+		 );
+	</insert>
+	
+	<update id="updateReviewFile" parameterType="com.gd.Final.dto.ReviewFileDto">
+		UPDATE Review_file
+		   SET file_name = #{fileName}
+			  ,original_name = #{originalName}
+			  ,file_type = #{fileType}
+			  ,file_size = #{fileSize}
+			  ,update_date = NOW()	
+			  ,create_date = NOW()
+		 WHERE file_no = #{fileNo}
+	</update>
+	
+</mapper>

@@ -2397,9 +2397,12 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 
 		<!-- Header -->
 		<section id="header">
+			<div>
+				<img src="/Final/img/rogo3.PNG" width="150px" style="position:absolute; left: 40px;">
+			</div>
+		
 			<div class="container">
 				<!-- Nav -->
-				
 				<c:if test="${loginUser != null }">
 					<!-- 사용자 메뉴 -->
 					<nav id="nav">
