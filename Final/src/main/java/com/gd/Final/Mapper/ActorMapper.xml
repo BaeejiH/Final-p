@@ -3,12 +3,12 @@
 <mapper namespace="com.gd.Final.Mapper.ActorMapper">
 	<select id="selectActorList" parameterType="Map" resultType="com.gd.Final.dto.ActorDto">
 		 SELECT actor_id as actorId
-		 		,actor_img actorImg 
-		 		,actor_name as actorName
-		 		,actor_moviename as actorMN
-		 		,actor_gender as actorGender
-		 		,actor_age actorAge		 		
-		 FROM Actor
+	 		   ,actor_img actorImg 
+	 		   ,actor_name as actorName
+	 		   ,actor_moviename as actorMN
+	 		   ,actor_gender as actorGender
+	 		   ,actor_age actorAge		 		
+		  FROM Actor
 		 where movie_num = #{movieNum}
 	</select>
 </mapper>

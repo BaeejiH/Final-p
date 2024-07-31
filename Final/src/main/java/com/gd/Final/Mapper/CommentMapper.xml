@@ -4,21 +4,23 @@
 
 	<insert id="insertComment" parameterType="com.gd.Final.dto.CommentDto">
 			INSERT INTO comment (movie_num
-							,user_id
-							,comment_text
-							,rating
-							,comment_date) 
-					VALUES (#{movieNum}
-							,#{userId}
-							,#{commentText}
-							,#{rating}
-							,NOW());
+							    ,user_id
+							    ,comment_text
+							    ,rating
+							    ,comment_date) 
+					   VALUES (#{movieNum}
+							  ,#{userId}
+							  ,#{commentText}
+							  ,#{rating}
+							  ,NOW());
 	</insert>
 	
 	<delete id="deleteComment" parameterType="int">
 											
-		DELETE FROM comment
-		WHERE comment_no=#{commentNo}  AND movie_num = #{movieNum};
+		DELETE 
+		  FROM comment
+		 WHERE comment_no=#{commentNo}  
+		   AND movie_num = #{movieNum};
 														
 	</delete>
 </mapper>

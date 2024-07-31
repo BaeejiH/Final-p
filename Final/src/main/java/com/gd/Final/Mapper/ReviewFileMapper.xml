@@ -3,23 +3,21 @@
 <mapper namespace="com.gd.Final.Mapper.ReviewFileMapper">
 
 	<insert id="insertReviewFile" parameterType="com.gd.Final.dto.ReviewFileDto">
-		 INSERT INTO Review_file (
-			 review_id
-			 ,file_name
-			 ,original_name
-			 ,file_type
-			 ,file_size
-			 ,update_date
-			 ,create_date
-		 ) VALUES (
-			 #{reviewId}
-			 ,#{fileName}
-			 ,#{originalName}
-			 ,#{fileType}
-			 ,#{fileSize}
-			 ,NOW()
-			 ,NOW()
-		 );
+		 INSERT INTO Review_file (review_id
+			                     ,file_name
+			                     ,original_name
+			                    ,file_type
+			                    ,file_size
+			                    ,update_date
+			                    ,create_date
+					) VALUES ( #{reviewId}
+							  ,#{fileName}
+							  ,#{originalName}
+							  ,#{fileType}
+							  ,#{fileSize}
+							  ,NOW()
+							  ,NOW()
+						 	);
 	</insert>
 	
 	<update id="updateReviewFile" parameterType="com.gd.Final.dto.ReviewFileDto">

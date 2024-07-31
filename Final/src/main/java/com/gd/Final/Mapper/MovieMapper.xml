@@ -4,79 +4,82 @@
 	
 	<select id="selectMovieList" parameterType="Map" resultType="com.gd.Final.dto.MovieDto">    
 				SELECT m.movie_num AS movieNum
-			        ,m.title
-			        ,m.bcode
-			        ,COALESCE(latest_borrow.bhave, '대여가능') AS bhave
-			        ,COALESCE(borrow_Count.borrow_Count, 0) AS borrow_Count
-				FROM Movie m
-				LEFT JOIN (
-				    SELECT bcode
-				       	  ,bhave
-				    FROM borrow
-				    WHERE 
-				        end_date = (
-				            SELECT MAX(end_date)
-				            FROM borrow b2
-				            WHERE b2.bcode = borrow.bcode
-				        )
-				) latest_borrow ON m.bcode = latest_borrow.bcode
-				LEFT JOIN (
-				    SELECT t.bcode
-				          ,COUNT(*) AS borrow_Count
-				    FROM borrow t
-				    GROUP BY t.bcode
-				) borrow_Count ON m.bcode = borrow_Count.bcode
+			          ,m.title
+			          ,m.bcode
+			          ,COALESCE(latest_borrow.bhave, '대여가능') AS bhave
+			          ,COALESCE(borrow_Count.borrow_Count, 0) AS borrow_Count
+				  FROM Movie m
+			 LEFT JOIN (
+						SELECT bcode
+				       	  	  ,bhave
+				          FROM borrow
+				         WHERE end_date = (
+				            				SELECT MAX(end_date)
+				           					  FROM borrow b2
+				                             WHERE b2.bcode = borrow.bcode
+				        				  )
+					   ) latest_borrow 
+					ON m.bcode = latest_borrow.bcode
+		     LEFT JOIN (
+				    	SELECT t.bcode
+				              ,COUNT(*) AS borrow_Count
+				          FROM borrow t
+				      GROUP BY t.bcode
+				       ) borrow_Count 
+				    ON m.bcode = borrow_Count.bcode
 				<where>
 				
 				  <if test="searchMovie != null">
 				      AND m.title LIKE CONCAT('%', #{searchMovie}, '%')
 				  </if>
 		  
-		 		 </where>
-		  ORDER BY m.movie_num
-		  LIMIT #{beginRow}, #{rowPerPage};
+		 	   </where>
+		      ORDER BY m.movie_num
+		         LIMIT #{beginRow}, #{rowPerPage};
 </select>	
 
 	<select id="selectMovieCount" resultType="int">
-		SELECT COUNT(*) FROM
-		Movie;
+		SELECT COUNT(*) 
+		  FROM Movie;
 	</select>
 
 	<select id="selectMovieOne" parameterType="Map" resultType="com.gd.Final.dto.MovieDto">
 		SELECT t1.file_name fileName
-				,t.movie_num AS movieNum
-				,t.Genre
-				,t.title
-				,t.director
-				,t.producer
-				,t.release_date as releaseDate
-				,t.runtime
-				,t.description
-				,bcode
-		FROM Movie t
-		JOIN Movie_file t1
-		ON t.movie_num = t1.movie_num
-		WHERE t.movie_num = #{movieNum};
+			  ,t.movie_num AS movieNum
+			  ,t.Genre
+			  ,t.title
+			  ,t.director
+			  ,t.producer
+			  ,t.release_date as releaseDate
+			  ,t.runtime
+			  ,t.description
+			  ,bcode
+		  FROM Movie t
+		  JOIN Movie_file t1
+		    ON t.movie_num = t1.movie_num
+		 WHERE t.movie_num = #{movieNum};
 		
 	</select>
 	
 	<update id="updateMovie" parameterType="com.gd.Final.dto.MovieDto">
 		UPDATE Movie m
-		JOIN Genre g
-		ON m.genre = g.genre
-		SET title = #{title}
-		    ,m.genre = #{genre}
-		    ,m.director = #{director}
-		    ,m.producer = #{producer}
-		    ,m.release_date = #{releaseDate}
-		    ,m.runtime = #{runtime}
-		    ,m.DESCRIPTION = #{description}
-		    ,m.bcode = #{bcode}
-		WHERE movie_num = #{movieNum};
+		  JOIN Genre g
+		    ON m.genre = g.genre
+		   SET title = #{title}
+		      ,m.genre = #{genre}
+		      ,m.director = #{director}
+		      ,m.producer = #{producer}
+		      ,m.release_date = #{releaseDate}
+		      ,m.runtime = #{runtime}
+		      ,m.DESCRIPTION = #{description}
+		      ,m.bcode = #{bcode}
+		 WHERE movie_num = #{movieNum};
 	</update>
 	
 	<delete id="deleteMovie" parameterType="int" >
-		DELETE FROM Movie WHERE movie_num = #{movieNum} 
+		DELETE 
+		  FROM Movie 
+		 WHERE movie_num = #{movieNum} 
 	</delete>
 	
 	<insert id="insertMovie" parameterType="com.gd.Final.dto.MovieDto" >
@@ -86,11 +89,11 @@
 		</selectKey>
 	
 		INSERT INTO Movie(Genre
-						, title,director
-						,producer,release_date
-						,runtime
-						,DESCRIPTION
-						,bcode)
+						 ,title,director
+						 ,producer,release_date
+						 ,runtime
+						 ,DESCRIPTION
+						 ,bcode)
 				VALUES(#{genre}
 						,#{title}
 						,#{director}
@@ -108,34 +111,43 @@
 				,comment_text AS commentText
 				,rating
 				,comment_date AS commentDate
-		FROM comment
-		where movie_num = #{movieNum};
+		 FROM comment
+	    where movie_num = #{movieNum};
 	</select>
-	
+	 
 	<select id="selectFavoriteList" parameterType="Map" resultType="com.gd.Final.dto.FavoriteDto">
 		SELECT t.user_id AS userId
-			   ,t.movie_num as movieNum
-			   , t1.title
-			   , t1.genre
-			   ,t.favorite_date as favoriteDate
-		FROM Favorite t
-		JOIN Movie t1
-		ON t.movie_num = t1.movie_num
+			  ,t.movie_num as movieNum
+			  , t1.title
+			  , t1.genre
+			  ,t.favorite_date as favoriteDate
+		 FROM Favorite t
+		 JOIN Movie t1
+		   ON t.movie_num = t1.movie_num
 		WHERE user_id = ${userId}
 	</select>
 	
 	 <select id="Favorited" resultType="int">
 	 	SELECT COUNT(*) 
-		FROM Favorite 
-		WHERE user_id = #{userId} AND movie_num= #{movieNum};		
+		  FROM Favorite 
+		 WHERE user_id = #{userId} 
+		   AND movie_num= #{movieNum};		
     </select>
 
     <insert id="insertFavorte">
-        INSERT INTO Favorite (user_id, movie_num,favorite_date) VALUES (#{userId}, #{movieNum},NOW())
+        INSERT INTO Favorite (user_id
+        					, movie_num
+        					,favorite_date) 
+        			 VALUES (#{userId}
+        			        ,#{movieNum}
+        			        ,NOW())
     </insert>
 
     <delete id="deleteFavortie">
-        DELETE FROM Favorite WHERE user_id = #{userId} AND movie_num = #{movieNum}
+        DELETE 
+          FROM Favorite 
+         WHERE user_id = #{userId} 
+           AND movie_num = #{movieNum}
     </delete>
 	
 </mapper>

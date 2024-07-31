@@ -3,58 +3,77 @@
 <mapper namespace="com.gd.Final.Mapper.UserMapper">
 	<select id="selectUserList" parameterType="Map" resultType="com.gd.Final.dto.UserDto">
 		SELECT username userName 
-			,user_id userId
-			,email
-			,gender
-			,update_date updateDate
-			,create_date createDate
-		from User
-		WHERE 1= 1
-		LIMIT #{beginRow},#{rowPerPage};
+			  ,user_id userId
+			  ,email
+			  ,gender
+			  ,update_date updateDate
+			  ,create_date createDate
+		  FROM User
+		 WHERE 1= 1
+		 LIMIT #{beginRow},#{rowPerPage};
 	</select>
 	
 	<select id="selectUserCount" resultType="int">
-		SELECT COUNT(*) FROM User;
+		SELECT COUNT(*) 
+		  FROM User;
 	</select>
 	
 	<select id="selectUserOne" resultType="com.gd.Final.dto.UserDto">
-		SELECT username userName 	
+	  SELECT username userName 	
 			,user_id userId
 			,email
 			,gender
 			,update_date updateDate
 			,create_date createDate
-		from User
-		WHERE user_id = #{userId}; 
+	    FROM User
+	   WHERE user_id = #{userId}; 
 	</select>
 	
 	<insert id="signUp" parameterType="com.gd.Final.dto.UserDto">
-		INSERT INTO User(user_id,username,email,gender,update_date,create_date) 
-		VALUES (#{userId},#{userName},#{email},#{gender},NOW(),NOW())
+		INSERT INTO User(user_id
+					    ,username
+					    ,email
+					    ,gender
+					    ,update_date
+					    ,create_date) 
+		        VALUES (#{userId}
+		      		   ,#{userName}
+		      		   ,#{email}
+		      		   ,#{gender}
+		      		   ,NOW()
+		      		   ,NOW())
 	</insert>	
 		
 	<insert id="signupPW"  parameterType="com.gd.Final.dto.UserDto">	
-		INSERT INTO UserPwhistory(user_id, user_pw, create_date)
-    	VALUES (#{userId},#{userPw},NOW());				
+		INSERT INTO UserPwhistory(user_id
+								,user_pw
+								,create_date)
+    	                VALUES (#{userId}
+    	                       ,#{userPw}
+    	                       ,NOW());				
 	</insert>
 	
 	<update id="updateUser" parameterType="com.gd.Final.dto.UserDto">
-		UPDATE User SET username= #{userName}
-						,email = #{email}
-						,gender= #{gender}
-						,update_date= #{updateDate}
-						,create_date= #{createDate}
-		WHERE user_id = #{userId}
+		UPDATE User 
+		   SET username= #{userName}
+			  ,email = #{email}
+			  ,gender= #{gender}
+			  ,update_date= #{updateDate}
+			  ,create_date= #{createDate}
+		 WHERE user_id = #{userId}
 	</update>
 	
 	<delete id="deleteUser" parameterType="String">
-		DELETE FROM User WHERE user_id = #{userId}	
+		DELETE 
+		  FROM User 
+		 WHERE user_id = #{userId}	
 	</delete>
 	
 	<update id="updatePw" parameterType="Map">
 		UPDATE UserPwhistory
-		SET user_pw = #{newPw}
-		WHERE user_id = #{userId} and user_pw = #{userPw};
+		   SET user_pw = #{newPw}
+		 WHERE user_id = #{userId} 
+		   AND user_pw = #{userPw};
 	</update>
 	
 </mapper>

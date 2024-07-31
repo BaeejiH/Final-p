@@ -3,49 +3,55 @@
 <mapper namespace="com.gd.Final.Mapper.BorrowMapper">
 
 	<insert id="insertBorrow" parameterType="com.gd.Final.dto.BorrowDto">
-		INSERT INTO borrow (bcode,user_id,start_date,end_date) 
-		VALUES (#{bcode},#{userId},NOW(),DATE_ADD(NOW(), INTERVAL 7 DAY));
+		INSERT INTO borrow (bcode
+						   ,user_id
+						   ,start_date
+						   ,end_date) 
+					VALUES (#{bcode}
+					       ,#{userId}
+					       ,NOW()
+					       ,DATE_ADD(NOW(),INTERVAL 7 DAY));
 	</insert>
 	
 	<select id="selectBorrowList" parameterType="Map" resultType="com.gd.Final.dto.BorrowDto">	
 		
-		SELECT  t.bcode 
+		 SELECT t.bcode 
 				,t.user_id AS userId
 				,t1.title
 				, t.START_date AS startDate
 				, t.end_date AS endDate
 				, t.bhave                                                                           
-		FROM borrow t
-		JOIN Movie t1
-		ON (t.bcode = t1.bcode)
-		where user_id = #{userId}
-		ORDER BY t.bcode; 			
+		  FROM borrow t
+		  JOIN Movie t1
+		    ON (t.bcode = t1.bcode)
+		 where user_id = #{userId}
+	  ORDER BY t.bcode; 			
 					
 	</select>
 	
 	<update id="updateBehave" parameterType="com.gd.Final.dto.BorrowDto">
 				
 		UPDATE borrow 
-		SET bhave = '반납완료'
-		WHERE bcode = #{bcode} 
-		  AND user_id = #{userId} 
-		  AND bhave = '대여중';
+		   SET bhave = '반납완료'
+		 WHERE bcode = #{bcode} 
+		   AND user_id = #{userId} 
+		   AND bhave = '대여중';
 				
 	</update>
 	
 	<select id="selectBList" parameterType="Map" resultType="com.gd.Final.dto.BorrowDto">	
 		
-		SELECT  t.bcode 
+		  SELECT t.bcode 
 				,t.user_id AS userId
 				,t1.title
 				, t.START_date AS startDate
 				, t.end_date AS endDate
 				, t.bhave                                                                           
-		FROM borrow t
-		JOIN Movie t1
-		ON (t.bcode = t1.bcode)
-		ORDER BY t.bcode 	
-		LIMIT #{beginRow},#{rowPerPage};		
+		   FROM borrow t
+		   JOIN Movie t1
+		     ON (t.bcode = t1.bcode)
+	   ORDER BY t.bcode 	
+		  LIMIT #{beginRow},#{rowPerPage};		
 					
 	</select>
 	
@@ -56,10 +62,10 @@
 	<update id="updateBeHaveByAdmin" parameterType="com.gd.Final.dto.BorrowDto">
 				
 		UPDATE borrow 
-		SET bhave = '대여가능'
-		WHERE bcode = #{bcode}
-		  AND user_id = #{userId}
-		  AND bhave = '반납완료';
+		   SET bhave = '대여가능'
+		 WHERE bcode = #{bcode}
+		   AND user_id = #{userId}
+		   AND bhave = '반납완료';
 				
 	</update>
 	

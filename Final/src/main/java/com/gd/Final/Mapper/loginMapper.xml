@@ -3,53 +3,54 @@
 <mapper namespace="com.gd.Final.Mapper.loginMapper">
 	<select id="UserLoginCheck" resultType="com.gd.Final.dto.UserDto">
 		SELECT u.username 
-			,u.user_id userId
-			,u.email,u.gender
-			,u.update_date updateDate
-			,u.create_date createDate
-			,up.user_pw userPw
-			,up.create_date UsercreateDate
-		from User u 
-		JOIN UserPwhistory up 
-		ON u.user_id = up.user_id 
-		WHERE u.user_id=#{userId} AND up.user_pw=#{userPw};
+			  ,u.user_id userId
+			  ,u.email,u.gender
+			  ,u.update_date updateDate
+			  ,u.create_date createDate
+			  ,up.user_pw userPw
+			  ,up.create_date UsercreateDate
+		  from User u 
+		  JOIN UserPwhistory up 
+		    ON u.user_id = up.user_id 
+		 WHERE u.user_id=#{userId} AND up.user_pw=#{userPw};
 	</select>
 	
 	<select id="AdminLoginCheck" resultType="com.gd.Final.dto.AdminDto">
 		SELECT a.name
-			,a.admin_id adminId
-			,a.email
-			,a.gender
-			,a.update_date updateDate
-			,a.create_date createDate
-			,ap.admin_pw adminPw
-			,ap.create_date AdmincreateDate
-		from Admin a 
-		JOIN AdminPwhistory ap 
-		ON a.admin_id = ap.admin_id 
-		WHERE a.admin_id=#{adminId} AND ap.admin_pw=#{adminPw};
+			  ,a.admin_id adminId
+			  ,a.email
+			  ,a.gender
+			  ,a.update_date updateDate
+			  ,a.create_date createDate
+			  ,ap.admin_pw adminPw
+			  ,ap.create_date AdmincreateDate
+		  from Admin a 
+		  JOIN AdminPwhistory ap 
+		    ON a.admin_id = ap.admin_id 
+		 WHERE a.admin_id=#{adminId} 
+		   AND ap.admin_pw=#{adminPw};
 	</select>
 	
 	<select id="selectUserId" parameterType="String" resultType="String">
 		 SELECT user_id AS userId
-		 FROM User
-		 WHERE user_id = #{userId};	
+		   FROM User
+		  WHERE user_id = #{userId};	
 	</select>
 	
 	<select id="CheckUserId" resultType="String">
 		
 		SELECT user_id 
-		FROM User
-		WHERE email = #{email};
+		  FROM User
+		 WHERE email = #{email};
 		
 	</select>
 	
 	<select id="CheckUserPw" parameterType="String" resultType="String">
 		SELECT t1.user_pw
-		FROM User t
-		JOIN UserPwhistory t1
-		ON t.user_id = t1.user_id
-		WHERE t.user_id = #{userId};
+		  FROM User t
+		  JOIN UserPwhistory t1
+		    ON t.user_id = t1.user_id
+		 WHERE t.user_id = #{userId};
 	</select>
 	
 	

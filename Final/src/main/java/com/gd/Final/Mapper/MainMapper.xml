@@ -4,8 +4,8 @@
 
 	<select id="selectRecommand" parameterType="Map" resultType="com.gd.Final.dto.MovieFileDto">
 		  SELECT t.file_name AS fileName
-			     ,t.movie_num AS movieNum
-			     ,TRUNCATE(AVG(t2.rating), 1) AS avgRating
+			    ,t.movie_num AS movieNum
+			    ,TRUNCATE(AVG(t2.rating), 1) AS avgRating
 			FROM Movie_file t
 	   LEFT JOIN comment t2 
 			  ON t.movie_num = t2.movie_num
