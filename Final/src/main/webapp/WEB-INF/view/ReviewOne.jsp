@@ -45,7 +45,7 @@
 		<button type="submit">리뷰 수정</button>
 	</form>
 	
-	<a href="${pageContext.request.contextPath}/removeReview?reviewId=${rDto.reviewId}"><button>리뷰 삭제</button></a>
+	<a href="${pageContext.request.contextPath}/removeReview?reviewId=${rDto.reviewId}&movieNum=${rDto.movieNum}"><button>리뷰 삭제</button></a>
 	
 </body>
 </html>

@@ -65,7 +65,7 @@
 	
 	<delete id="deleteUser" parameterType="String">
 		DELETE 
-		  FROM User 
+		  FROM User 	
 		 WHERE user_id = #{userId}	
 	</delete>
 	

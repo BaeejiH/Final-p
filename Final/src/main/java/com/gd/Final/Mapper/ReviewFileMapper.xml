@@ -6,9 +6,9 @@
 		 INSERT INTO Review_file (review_id
 			                     ,file_name
 			                     ,original_name
-			                    ,file_type
-			                    ,file_size
-			                    ,update_date
+			                     ,file_type
+			                     ,file_size
+			                     ,update_date
 			                    ,create_date
 					) VALUES ( #{reviewId}
 							  ,#{fileName}

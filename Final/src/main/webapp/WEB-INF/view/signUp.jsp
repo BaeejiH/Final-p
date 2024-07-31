@@ -119,15 +119,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td>Update Date</td>
-                    <td><input type="datetime" name="updateDate"></td>
-                </tr>
-
-                <tr>
-                    <td>Create Date</td>
-                    <td><input type="datetime" name="createDate"></td>
-                </tr>
             </table>
 
             <button type="submit">Sign Up</button>

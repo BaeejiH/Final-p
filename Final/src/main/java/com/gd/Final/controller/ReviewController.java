@@ -53,27 +53,28 @@ public class ReviewController {
 		
 		return "redirect:/review?movieNum="+reviewRequest.getMovieNum();	
 	}
-	
+	   
 	 // 리뷰 삭제
 	@GetMapping("/removeReview")
-	public String removeReview(@RequestParam(name="reviewId") int reviewId) {
+	public String removeReview(@RequestParam(name="reviewId") int reviewId,
+							   @RequestParam(name="movieNum") int movieNum) {
 		
-		int row = reviewService.removeReview(reviewId);
+		int row = reviewService.removeReview(reviewId, movieNum);
 		
 		if(row == 1) {
 			log.debug("리뷰삭제 성공");
 		}else {
 			log.debug("리뷰삭제 실패");
 		}
-			
-		return "redirect:/review";
+									
+		return "redirect:/review?movieNum="+movieNum;
 	}
 	// 리뷰 상세보기+ 수정 폼
 	@GetMapping("/ReviewOne")
 	public String getReviewOne(Model model,
 							   @RequestParam(name="reviewId") int reviewId) {
 		ReviewDto rDto =  reviewService.getReviewOne(reviewId);
-		
+									
 		model.addAttribute("rDto",rDto);
 		log.debug("rDto"+rDto);
 			

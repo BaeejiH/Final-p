@@ -79,9 +79,9 @@ public class ReviewService {
 	
 	
 	// 리뷰 삭제
-	public int removeReview (int reviewId) {
-		return reviewMapper.deleteReview(reviewId);
-	}
+	public int removeReview (int reviewId, int movieNum) {
+		return reviewMapper.deleteReview(reviewId, movieNum);
+	}	
 	// 리뷰 수정
 	public int modifyReview (ReviewDto rDro) {
 		return reviewMapper.updateReview(rDro);

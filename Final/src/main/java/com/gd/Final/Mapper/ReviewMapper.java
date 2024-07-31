@@ -17,7 +17,7 @@ public interface ReviewMapper {
 	int insertReview (ReviewDto rDto);
 	
 	// 리뷰 삭제
-	int deleteReview (int reviewId);
+	int deleteReview (int reviewId, int movieNum);
 	
 	// 리뷰 수정
 	int updateReview(ReviewDto rDto);
