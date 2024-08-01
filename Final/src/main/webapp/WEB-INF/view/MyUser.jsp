@@ -6,6 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

@@ -87,7 +87,7 @@
 
         <hr>
 
-        <form action="${pageContext.request.contextPath}/signUp" method="post" id="signUpForm">
+        <form action="${pageContext.request.contextPath}/public/signUp" method="post" id="signUpForm">
             <table>
                 <tr>
                     <td>User ID</td>

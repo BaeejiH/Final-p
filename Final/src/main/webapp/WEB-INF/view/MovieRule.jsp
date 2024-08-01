@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
 <meta charset="UTF-8">
 <title>영화 대여 규칙</title>
 <style>

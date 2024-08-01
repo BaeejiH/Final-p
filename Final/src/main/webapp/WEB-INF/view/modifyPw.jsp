@@ -8,6 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<%
+	if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
 </head>
 <body>
 <%@include file = "/WEB-INF/view/CSS/Header.jsp"  %>

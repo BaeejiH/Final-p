@@ -238,7 +238,7 @@ span {
 				<div class="overlay-right">
 					<h2>Hello, Member</h2>
 					<p>Enter your personal details and start borrow movie with us</p>
-					<a href="${pageContext.request.contextPath}/signUp"><button id="signUp" class="overlay_btn">Sign Up</button></a>
+					<a href="${pageContext.request.contextPath}/public/signUp"><button id="signUp" class="overlay_btn">Sign Up</button></a>
 				</div>
 			</div>
 		</div>

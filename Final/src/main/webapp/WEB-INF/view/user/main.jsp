@@ -15,6 +15,13 @@
 	System.out.print("sessionn" + loginUser);
 %>
 
+<%
+	if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
+
 
 <style>
 

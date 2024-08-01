@@ -2,6 +2,13 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
+<%
+	if (session.getAttribute("loginUser") == null && session.getAttribute("loginAdmin") == null) {
+		response.sendRedirect(request.getContextPath() + "/public/login");
+		return;
+	}
+%>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

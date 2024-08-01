@@ -59,12 +59,12 @@ public class UserController {
 		return "UserOne";
 	}
 	// 회원등록 폼
-	@GetMapping("/signUp")
+	@GetMapping("/public/signUp")
 	public String addUser() {	
-		return "signUp";
+		return "/public/signUp";
 	}
 	//회원등록 액션
-	@PostMapping("/signUp")
+	@PostMapping("/public/signUp")
 	public String addUser(UserDto userDto) {
 		
 		log.debug("UserId:" +userDto.getUserId());
