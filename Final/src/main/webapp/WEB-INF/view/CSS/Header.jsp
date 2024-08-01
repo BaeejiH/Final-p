@@ -2398,7 +2398,7 @@ input[type="button"].alt:active, input[type="submit"].alt:active, input[type="re
 		<!-- Header -->
 		<section id="header">
 			<div>
-				<img src="/Final/img/rogo3.PNG" width="150px" style="position:absolute; left: 40px;">
+				<a href="${pageContext.request.contextPath}/user/main"><img src="/Final/img/rogo3.PNG" width="150px" style="position:absolute; left: 40px;"></a>
 			</div>
 		
 			<div class="container">
