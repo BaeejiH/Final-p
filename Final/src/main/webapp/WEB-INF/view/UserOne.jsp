@@ -69,6 +69,13 @@
 	
 	</form>
 	
+	<c:if test="${not empty updateS}">
+            <p><strong>${updateS}</strong></p>
+        </c:if>
+        <c:if test="${empty updateF}">
+            <p><strong>${updateF}</strong></p>
+        </c:if>
+	
 	<br/>
 	<!-- 관리자 기능 -->
 	<c:if test="${loginAdmin != null }">

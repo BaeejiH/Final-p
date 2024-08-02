@@ -32,7 +32,11 @@
 			<tr>
 				<td>현재 비밀번호</td>
 				<td><input type="password" name="userPw"></td>
-				
+				 <c:if test="${not empty Serror}">
+			        <div style="color: red;">
+			            ${Serror}
+			        </div>
+			    </c:if>
 			</tr>
 			
 			<tr>
@@ -49,7 +53,7 @@
 	 <c:if test="${not empty error}">
         <div style="color: red;">
             ${error}
-        </div>
+        </div>		
     </c:if>
 </body>
 </html>

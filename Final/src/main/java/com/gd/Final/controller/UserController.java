@@ -75,17 +75,23 @@ public class UserController {
 	
 	// 수정 액션
 	@PostMapping("/UserOne")
-	public String modifyUser(UserDto userDto) {
+	public String modifyUser(UserDto userDto,Model model) {
 		int row = userService.modifyUser(userDto);	
+		
 		log.debug("row:",row);
 		
 		if(row == 1) {
 			log.debug("수정성공");
+			model.addAttribute("updateS","회원정보가 수정이 완료되었습니다.");
+			
+			 UserDto updatedUser = userService.getUserOne(userDto.getUserId());
+			 model.addAttribute("us",updatedUser);
 		}else {
 			log.debug("수정실패");
+			model.addAttribute("updateF","회원정보 수정에 실패하였습니다.");
 		}
 		
-		return "redirect:/UserList?userId="+userDto.getUserId();
+		return "UserOne";
 	}
 	
 	//삭제
@@ -142,7 +148,14 @@ public class UserController {
 								 @RequestParam(name="newPw") String newPw,
 								 @RequestParam(name="userId") String userId,
 								 Model model) {
-				
+		
+		// 현재비밀번호가 새로운 비밀번호와 같으면 실패
+		if(userPw.equals(newPw)) { // 문자열 equals() -- > 문자열 값 비교
+			model.addAttribute("Serror","비밀번호가 이전 비밀번호와 동일합니다");
+			return "modifyPw";
+		}
+		
+		
 		Map<String,Object> m = new HashMap<>();
 		m.put("newPw", newPw);
 		m.put("userId", userId);
