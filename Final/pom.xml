@@ -32,14 +32,6 @@
 	</properties>
 	<dependencies>
 	
-		<dependency>
-		    <groupId>javax.servlet.jsp</groupId>
-		    <artifactId>javax.servlet.jsp-api</artifactId>
-		    <version>2.3.3</version>
-		    <scope>provided</scope>
-		</dependency>
-		
-		
 			<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<!--내장형 톰켓 jsp 라이브러리-->
 		<dependency>
@@ -111,20 +103,21 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	            <configuration>
+	                <mainClass>com.gd.Final.FinalApplication</mainClass>
+	                <excludes>
+	                    <exclude>
+	                        <groupId>org.projectlombok</groupId>
+	                        <artifactId>lombok</artifactId>
+	                    </exclude>
+	                </excludes>
+	            </configuration>
+	        </plugin>
+	    </plugins>
 	</build>
 
 </project>

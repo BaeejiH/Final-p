@@ -125,6 +125,7 @@
         </form>
     </div>
  
+   
     <script>
         $('#idck').click(function() {
             if ($('#id').val() == '') {
@@ -150,8 +151,23 @@
                 error: function(xhr, status, error) {
                     console.error('ID check error:', error);
                 }
-            });
+            }); 
+        });
+
+        // 유효성 검사 추가
+       	// 회원가입이 모든 필드를 ''(공백)이 아니라, 모두 입력해야 회원가입을 할 수 있도록 함.
+        $('#signUpForm').submit(function(event) {
+            if ($('#userId').val() == '' || 
+                $('input[name="userPw"]').val() == '' || 
+                $('input[name="userName"]').val() == '' || 
+                $('input[name="email"]').val() == '' || 
+                $('select[name="gender"]').val() == '') {
+                alert('"Please enter all required information."');
+                event.preventDefault();// 브라우저에서 발생하는 기본 이벤트 동작을 중단시키는 역할
+            }
         });
     </script>
+    
+    
 </body>
 </html>

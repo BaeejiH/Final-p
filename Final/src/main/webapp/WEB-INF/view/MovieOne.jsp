@@ -44,12 +44,18 @@
 			}
 		});
 	}
+	
+	
 	// 댓글 삭제 경고문구
-	function deleteComment() {
-		if (confirm("정말로 댓글을 삭제하시겠습니까?")) {
-			$("#CommentForm").submit();
-		}
-	}
+	function deleteComment(event) {
+    // 기본 폼 제출 방지 용도
+    // 아래 form전송과 버튼 충돌을 방지하기 위해서 이벤트로 처리함, 취소 버튼을 눌렀을시 버튼이 동작되지 않도록.
+    event.preventDefault();
+
+    if (confirm("정말로 댓글을 삭제하시겠습니까?")) {
+        document.getElementById("CommentForm").submit();
+    }
+}
 </script>
 
 
@@ -216,7 +222,7 @@
 							id="CommentForm">
 								<input type="hidden" name="commentNo" value="${c.commentNo}">
 								<input type="hidden" name="movieNum" value="${c.movieNum}">
-								<button type="submit" class="btn btn-danger btn-sm" onclick="deleteComment()">삭제</button>
+								<button type="submit" class="btn btn-danger btn-sm" onclick="deleteComment(event)">삭제</button>
 							</form>
 						</c:if>
 					</div>
