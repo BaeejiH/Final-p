@@ -31,33 +31,32 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-	
+
 			<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<!--내장형 톰켓 jsp 라이브러리-->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
-		     <version>10.1.8</version>
 		</dependency>
-		
+
 		<!--jstl -->
 		<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
 		<dependency>
 		    <groupId>jakarta.servlet.jsp.jstl</groupId>
 		    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-		  
+
 		</dependency>
-		
+
 		<!-- -->
 		<!-- https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
 		<dependency>
 		    <groupId>org.glassfish.web</groupId>
 		    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
-		
-		
-		
-		
+
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -103,21 +102,20 @@
 	</dependencies>
 
 	<build>
-	    <plugins>
-	        <plugin>
-	            <groupId>org.springframework.boot</groupId>
-	            <artifactId>spring-boot-maven-plugin</artifactId>
-	            <configuration>
-	                <mainClass>com.gd.Final.FinalApplication</mainClass>
-	                <excludes>
-	                    <exclude>
-	                        <groupId>org.projectlombok</groupId>
-	                        <artifactId>lombok</artifactId>
-	                    </exclude>
-	                </excludes>
-	            </configuration>
-	        </plugin>
-	    </plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

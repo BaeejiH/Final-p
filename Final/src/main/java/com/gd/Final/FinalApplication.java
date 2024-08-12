@@ -17,7 +17,7 @@ public class FinalApplication extends SpringBootServletInitializer implements We
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/img/**").addResourceLocations("file:///c:/Mupload/");
+		registry.addResourceHandler("/img/**").addResourceLocations("file:/home/ubuntu/tomcat/apache-tomcat-10.1.24/webapps/Final/WEB-INF/upload/");
 	}
 	
 	 @Override    

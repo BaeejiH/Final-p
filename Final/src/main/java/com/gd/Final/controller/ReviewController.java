@@ -27,7 +27,7 @@ public class ReviewController {
 		
 	// 리뷰 리스트
 	@GetMapping("/review")
-	public List<ReviewDto> getReviewList(Model model,
+	public String getReviewList(Model model,
 										@RequestParam(name="movieNum") int movieNum) {
 		List<ReviewDto> Reviewlist = reviewService.getReviewList(movieNum);
 		
@@ -36,7 +36,7 @@ public class ReviewController {
 		log.debug("Reviewlist"+Reviewlist);
 		log.debug("RequestParam:"+movieNum);
 		
-		return Reviewlist;
+		return "review";
 	}
 	
 	// 리뷰 등록 폼
